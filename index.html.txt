@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdwikFlow — All-in-One Business Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07080F;--surface:#0E1020;--card:#131629;--border:rgba(255,255,255,0.07);
+  --accent:#5B5FFF;--accent2:#A259FF;--green:#00E5A0;--red:#FF5C7A;--yellow:#FFB930;
+  --text:#E8EAF6;--muted:#7B80A8;--white:#FFFFFF;
+  --grad:linear-gradient(135deg,#5B5FFF 0%,#A259FF 100%);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
+
+/* ══ LANDING PAGE ══ */
+#landing{display:block}
+#dashboard{display:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;padding:0 4%;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;color:#fff;letter-spacing:-.5px}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:1.2rem}
+.nav-link{color:var(--muted);font-size:.85rem;font-weight:500;text-decoration:none;transition:color .2s;background:none;border:none;cursor:pointer}
+.nav-link:hover{color:#fff}
+.btn-grad{background:var(--grad);color:#fff;border:none;padding:.55rem 1.3rem;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;transition:opacity .2s,transform .2s}
+.btn-grad:hover{opacity:.88;transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:110px 4% 80px;position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;animation:drift 10s ease-in-out infinite alternate}
+.orb1{width:500px;height:500px;background:rgba(91,95,255,.16);top:-120px;left:-100px}
+.orb2{width:380px;height:380px;background:rgba(162,89,255,.13);bottom:-80px;right:-80px;animation-delay:-5s}
+.orb3{width:260px;height:260px;background:rgba(0,229,160,.07);top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-9s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(28px,18px) scale(1.07)}}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(91,95,255,.1);border:1px solid rgba(91,95,255,.28);color:#A0A4FF;padding:.32rem 1rem;border-radius:100px;font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1.6rem;position:relative;z-index:1}
+.hero-badge i{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,6.5vw,5.2rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;color:#fff;max-width:860px;position:relative;z-index:1}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{color:var(--muted);font-size:1.05rem;max-width:520px;margin:1.4rem auto 2.4rem;line-height:1.72;position:relative;z-index:1}
+.hero-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-primary{background:var(--grad);color:#fff;border:none;padding:.88rem 2rem;border-radius:10px;font-weight:600;font-size:.96rem;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 30px rgba(91,95,255,.32);text-decoration:none}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(91,95,255,.44)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);padding:.88rem 2rem;border-radius:10px;font-weight:500;font-size:.96rem;cursor:pointer;transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--accent);color:#fff}
+.hero-stats{display:flex;gap:2.8rem;justify-content:center;margin-top:3.5rem;flex-wrap:wrap;position:relative;z-index:1}
+.stat{text-align:center}
+.stat-n{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:#fff}
+.stat-n em{color:var(--accent);font-style:normal}
+.stat-l{color:var(--muted);font-size:.78rem;margin-top:.15rem}
+
+/* SERVICES SECTION */
+.services-section{padding:80px 4%;max-width:1200px;margin:0 auto}
+.sec-label{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.sec-label::before{content:'';width:22px;height:2px;background:var(--accent);border-radius:2px}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.12;margin-bottom:.8rem}
+.sec-sub{color:var(--muted);font-size:.96rem;max-width:500px;line-height:1.7;margin-bottom:2.5rem}
+
+/* SERVICE ACCORDION */
+.service-list{display:flex;flex-direction:column;gap:.75rem}
+.service-item{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .25s}
+.service-item.open{border-color:rgba(91,95,255,.4)}
+.service-header{display:flex;align-items:center;gap:1rem;padding:1.3rem 1.6rem;cursor:pointer;user-select:none;transition:background .2s}
+.service-header:hover{background:rgba(91,95,255,.04)}
+.svc-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.svc-info{flex:1}
+.svc-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#fff}
+.svc-tagline{color:var(--muted);font-size:.82rem;margin-top:.15rem}
+.svc-arrow{color:var(--muted);font-size:1.1rem;transition:transform .3s;flex-shrink:0}
+.service-item.open .svc-arrow{transform:rotate(180deg);color:var(--accent)}
+
+.service-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.service-item.open .service-body{max-height:900px}
+.svc-content{padding:0 1.6rem 1.6rem}
+.svc-desc{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:1.4rem;padding-top:.2rem;border-top:1px solid var(--border);padding-top:1.2rem}
+.svc-features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.6rem;margin-bottom:1.5rem}
+.svc-feat{background:rgba(91,95,255,.06);border:1px solid rgba(91,95,255,.12);border-radius:8px;padding:.6rem .9rem;font-size:.82rem;color:var(--text);display:flex;align-items:center;gap:.5rem}
+.svc-feat::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+
+/* PRICING INSIDE SERVICE */
+.svc-pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.2rem}
+.price-opt{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem;transition:border-color .25s,transform .25s;cursor:pointer}
+.price-opt:hover{border-color:var(--accent);transform:translateY(-2px)}
+.price-opt.selected{border-color:var(--accent);background:rgba(91,95,255,.08)}
+.price-opt .p-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;color:#fff;margin-bottom:.3rem}
+.price-opt .p-amount{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:#fff;line-height:1}
+.price-opt .p-amount sup{font-size:.85rem;vertical-align:top;margin-top:.3rem;display:inline-block}
+.price-opt .p-period{color:var(--muted);font-size:.75rem;margin-bottom:.6rem}
+.price-opt .p-features{list-style:none}
+.price-opt .p-features li{color:var(--muted);font-size:.78rem;padding:.2rem 0;display:flex;align-items:flex-start;gap:.4rem}
+.price-opt .p-features li::before{content:'·';color:var(--accent);flex-shrink:0}
+.price-opt.popular-opt{border-color:rgba(91,95,255,.35)}
+.pop-tag{background:var(--grad);color:#fff;font-size:.68rem;font-weight:700;padding:.18rem .55rem;border-radius:100px;letter-spacing:.06em;margin-left:.4rem}
+
+.svc-cta-row{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+.btn-buy{background:var(--grad);color:#fff;border:none;padding:.75rem 1.8rem;border-radius:9px;font-weight:600;font-size:.9rem;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 20px rgba(91,95,255,.3)}
+.btn-buy:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(91,95,255,.42)}
+.trial-note{color:var(--muted);font-size:.78rem}
+
+/* ══ DASHBOARD ══ */
+#dashboard{min-height:100vh;background:var(--bg)}
+.dash-layout{display:flex;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{width:240px;background:var(--surface);border-right:1px solid var(--border);padding:1rem 0;position:fixed;top:0;left:0;bottom:0;z-index:150;display:flex;flex-direction:column;transition:transform .3s}
+.sidebar-logo{padding:1rem 1.4rem 1.2rem;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;border-bottom:1px solid var(--border);margin-bottom:.8rem}
+.sidebar-logo span{color:var(--accent)}
+.sidebar-logo small{display:block;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:400;color:var(--green);margin-top:.15rem}
+.nav-section{padding:.4rem 1rem .2rem;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.nav-item{display:flex;align-items:center;gap:.75rem;padding:.65rem 1.4rem;color:var(--muted);font-size:.85rem;font-weight:500;cursor:pointer;border-radius:0;transition:background .2s,color .2s;border:none;background:none;width:100%;text-align:left}
+.nav-item:hover{background:rgba(91,95,255,.07);color:var(--text)}
+.nav-item.active{background:rgba(91,95,255,.12);color:#fff;position:relative}
+.nav-item.active::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--grad);border-radius:0 2px 2px 0}
+.nav-item .ni{font-size:1rem;width:20px;text-align:center}
+.sidebar-bottom{margin-top:auto;padding:1rem;border-top:1px solid var(--border)}
+.user-pill{display:flex;align-items:center;gap:.7rem}
+.user-avatar{width:34px;height:34px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;color:#fff;flex-shrink:0}
+.user-info .u-name{font-size:.82rem;font-weight:600;color:#fff}
+.user-info .u-plan{font-size:.72rem;color:var(--accent)}
+
+/* MAIN CONTENT */
+.dash-main{margin-left:240px;flex:1;padding:0}
+.dash-topbar{height:60px;background:rgba(14,16,32,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;position:sticky;top:0;z-index:100}
+.topbar-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#fff}
+.topbar-right{display:flex;align-items:center;gap:1rem}
+.notif-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:color .2s}
+.notif-btn:hover{color:#fff}
+
+/* PAGES */
+.dash-page{display:none;padding:2rem}
+.dash-page.active{display:block}
+
+/* OVERVIEW */
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin-bottom:2rem}
+.ov-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem}
+.ov-label{color:var(--muted);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
+.ov-val{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#fff}
+.ov-val em{font-style:normal;font-size:.95rem;color:var(--green);margin-left:.3rem}
+.ov-sub{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+
+.activity-row{display:grid;grid-template-columns:2fr 1fr;gap:1.2rem}
+.dash-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem}
+.dash-card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.92rem;color:#fff;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:space-between}
+.badge-green{background:rgba(0,229,160,.12);color:var(--green);font-size:.7rem;font-weight:600;padding:.2rem .55rem;border-radius:100px}
+.badge-yellow{background:rgba(255,185,48,.12);color:var(--yellow);font-size:.7rem;font-weight:600;padding:.2rem .55rem;border-radius:100px}
+
+/* LEADS TABLE */
+.leads-table{width:100%;border-collapse:collapse}
+.leads-table th{color:var(--muted);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--border)}
+.leads-table td{padding:.7rem .8rem;font-size:.84rem;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text)}
+.leads-table tr:last-child td{border-bottom:none}
+.status-pill{display:inline-block;padding:.18rem .6rem;border-radius:100px;font-size:.72rem;font-weight:600}
+.status-new{background:rgba(91,95,255,.15);color:#A0A4FF}
+.status-hot{background:rgba(255,92,122,.15);color:#FF5C7A}
+.status-won{background:rgba(0,229,160,.15);color:var(--green)}
+.status-follow{background:rgba(255,185,48,.15);color:var(--yellow)}
+
+/* PIPELINE */
+.pipeline-row{display:flex;gap:.6rem;overflow-x:auto;padding-bottom:.5rem}
+.pipe-stage{min-width:180px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem}
+.pipe-stage-name{font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.pipe-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.75rem;margin-bottom:.5rem;font-size:.82rem;color:var(--text);cursor:grab}
+.pipe-card .pc-name{font-weight:600;color:#fff;margin-bottom:.2rem}
+.pipe-card .pc-val{color:var(--green);font-size:.78rem}
+
+/* MINI CHART */
+.mini-chart{margin-top:.8rem}
+.bar-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+.bar-label{font-size:.75rem;color:var(--muted);width:60px;text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:8px;background:var(--surface);border-radius:100px;overflow:hidden}
+.bar-fill{height:100%;border-radius:100px;background:var(--grad);transition:width 1s ease}
+.bar-val{font-size:.72rem;color:var(--muted);width:32px;text-align:right;flex-shrink:0}
+
+/* AUTOMATION BUILDER */
+.flow-builder{display:flex;flex-direction:column;gap:.6rem;max-width:520px}
+.flow-node{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.9rem 1.2rem;display:flex;align-items:center;gap:.9rem;cursor:pointer;transition:border-color .2s}
+.flow-node:hover{border-color:rgba(91,95,255,.35)}
+.flow-node.trigger{border-color:rgba(91,95,255,.4)}
+.flow-node.action{border-color:rgba(0,229,160,.25)}
+.flow-node.condition{border-color:rgba(255,185,48,.25)}
+.node-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.node-text .nt-type{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.node-text .nt-name{font-size:.86rem;font-weight:600;color:#fff}
+.flow-connector{width:2px;height:20px;background:var(--border);margin-left:18px}
+.add-node{border:1px dashed var(--border);border-radius:10px;padding:.7rem;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.84rem;cursor:pointer;transition:border-color .2s,color .2s}
+.add-node:hover{border-color:var(--accent);color:var(--accent)}
+
+/* CALENDAR */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-day-name{text-align:center;font-size:.72rem;color:var(--muted);font-weight:600;padding:.3rem 0}
+.cal-day{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.5rem;min-height:70px;font-size:.78rem;cursor:pointer;transition:border-color .2s}
+.cal-day:hover{border-color:rgba(91,95,255,.3)}
+.cal-day.today{border-color:var(--accent);background:rgba(91,95,255,.08)}
+.cal-day.has-event{border-color:rgba(0,229,160,.3)}
+.cal-num{font-weight:600;color:var(--text);margin-bottom:.3rem}
+.cal-event{background:rgba(91,95,255,.2);color:#A0A4FF;font-size:.66rem;padding:.1rem .3rem;border-radius:4px;margin-bottom:.15rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cal-event.type-call{background:rgba(0,229,160,.15);color:var(--green)}
+.cal-event.type-meet{background:rgba(255,185,48,.15);color:var(--yellow)}
+
+/* EMAIL BUILDER */
+.email-composer{display:grid;grid-template-columns:1fr 360px;gap:1.2rem}
+.email-canvas{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;min-height:400px}
+.email-subject{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:1rem;border:none;background:transparent;width:100%;outline:none}
+.email-subject:focus{border-bottom:1px solid var(--accent)}
+.email-body{color:var(--text);font-size:.9rem;line-height:1.8;background:transparent;border:none;outline:none;width:100%;resize:none;min-height:280px}
+.email-tools{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem}
+.et-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.block-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.2rem}
+.block-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;font-size:.82rem;color:var(--text);cursor:pointer;transition:border-color .2s;display:flex;align-items:center;gap:.6rem}
+.block-item:hover{border-color:rgba(91,95,255,.3);color:#fff}
+
+/* CONTACTS */
+.contacts-search{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.65rem 1rem;width:100%;max-width:360px;color:var(--text);font-size:.88rem;outline:none;margin-bottom:1.2rem}
+.contacts-search:focus{border-color:var(--accent)}
+.contacts-search::placeholder{color:var(--muted)}
+.contacts-table{width:100%;border-collapse:collapse}
+.contacts-table th{color:var(--muted);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.65rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+.contacts-table td{padding:.72rem 1rem;font-size:.84rem;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text)}
+.contacts-table tr:last-child td{border-bottom:none}
+.contacts-table tr:hover td{background:rgba(91,95,255,.03)}
+.c-avatar{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff;margin-right:.5rem;vertical-align:middle}
+
+/* WHATSAPP / SMS */
+.chat-layout{display:grid;grid-template-columns:260px 1fr;gap:1.2rem;height:500px}
+.chat-list{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow-y:auto}
+.chat-contact{padding:.9rem 1rem;border-bottom:1px solid var(--border);cursor:pointer;transition:background .2s}
+.chat-contact:hover,.chat-contact.active{background:rgba(91,95,255,.07)}
+.cc-name{font-size:.85rem;font-weight:600;color:#fff}
+.cc-prev{font-size:.75rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cc-time{font-size:.7rem;color:var(--muted)}
+.chat-window{background:var(--card);border:1px solid var(--border);border-radius:12px;display:flex;flex-direction:column}
+.chat-header{padding:.9rem 1.2rem;border-bottom:1px solid var(--border);font-weight:600;color:#fff;font-size:.88rem}
+.chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.8rem}
+.msg{max-width:72%;padding:.65rem 1rem;border-radius:10px;font-size:.84rem;line-height:1.55}
+.msg-in{background:var(--surface);color:var(--text);align-self:flex-start;border-radius:4px 10px 10px 10px}
+.msg-out{background:rgba(91,95,255,.2);color:#C0C4FF;align-self:flex-end;border-radius:10px 4px 10px 10px}
+.chat-input-row{padding:.9rem;border-top:1px solid var(--border);display:flex;gap:.6rem}
+.chat-input{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.6rem .9rem;color:var(--text);font-size:.84rem;outline:none}
+.chat-input:focus{border-color:var(--accent)}
+.send-btn{background:var(--grad);color:#fff;border:none;padding:.6rem 1rem;border-radius:8px;cursor:pointer;font-size:.9rem}
+
+/* ANALYTICS */
+.analytics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem}
+.chart-card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:#fff;margin-bottom:1.2rem}
+.donut-wrap{display:flex;align-items:center;gap:1.4rem}
+.donut{width:100px;height:100px;position:relative}
+.donut svg{transform:rotate(-90deg)}
+.donut-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.donut-val{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:#fff}
+.donut-lbl{font-size:.65rem;color:var(--muted)}
+.legend{display:flex;flex-direction:column;gap:.5rem}
+.leg-item{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--muted)}
+.leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+/* WEBSITE BUILDER */
+.wb-layout{display:grid;grid-template-columns:200px 1fr;gap:1.2rem;height:480px}
+.wb-sidebar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;overflow-y:auto}
+.wb-canvas{background:#fff;border-radius:12px;overflow:hidden;position:relative;display:flex;flex-direction:column}
+.wb-browser{background:#e8e8e8;padding:.4rem .7rem;display:flex;align-items:center;gap:.4rem}
+.wb-dot{width:10px;height:10px;border-radius:50%}
+.wb-url{flex:1;background:#fff;border-radius:4px;padding:.2rem .5rem;font-size:.72rem;color:#666;margin:0 .3rem}
+.wb-frame{flex:1;background:#fafbff;position:relative;overflow:hidden}
+.wb-block{width:90%;margin:0.6rem auto;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:border-color .2s}
+.wb-block:hover{border-color:rgba(91,95,255,.5)}
+.wb-block.selected{border-color:var(--accent)}
+.wb-elem-btn{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:.55rem .8rem;font-size:.78rem;color:var(--text);cursor:pointer;width:100%;text-align:left;margin-bottom:.4rem;transition:border-color .2s}
+.wb-elem-btn:hover{border-color:rgba(91,95,255,.3);color:#fff}
+
+/* MULTI-PAGE SITE RESULT */
+.wb-pagetabs{display:flex;gap:0;background:#f3f4f8;border-bottom:1px solid #e5e6ee;overflow-x:auto}
+.wb-pagetab{padding:.6rem 1.1rem;font-size:.78rem;font-weight:600;color:#666;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s}
+.wb-pagetab:hover{color:#333}
+.wb-pagetab.active{color:var(--accent);border-bottom-color:var(--accent);background:#fff}
+.site-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;margin-bottom:1.2rem}
+.site-summary-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center}
+.site-summary-card .ssc-icon{font-size:1.4rem;margin-bottom:.4rem}
+.site-summary-card .ssc-val{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:#fff}
+.site-summary-card .ssc-label{font-size:.72rem;color:var(--muted);margin-top:.1rem}
+
+.my-sites-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem}
+.my-site-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.1rem;transition:border-color .2s,transform .2s}
+.my-site-card:hover{border-color:rgba(91,95,255,.4);transform:translateY(-2px)}
+.msc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
+.msc-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.94rem;color:#fff}
+.msc-url{color:var(--accent);font-size:.78rem;margin-bottom:.7rem;word-break:break-all}
+.msc-meta{color:var(--muted);font-size:.72rem;margin-bottom:.9rem}
+.msc-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.msc-btn{background:rgba(91,95,255,.1);color:var(--text);border:1px solid var(--border);padding:.35rem .7rem;border-radius:7px;font-size:.74rem;cursor:pointer;transition:background .2s}
+.msc-btn:hover{background:rgba(91,95,255,.2)}
+.msc-btn.danger{color:var(--red)}
+
+/* AI WIZARD */
+.wiz-steps{display:flex;align-items:center;gap:.5rem;margin-bottom:1.6rem;flex-wrap:wrap}
+.wiz-step{display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:.4;transition:opacity .3s}
+.wiz-step.active,.wiz-step.done{opacity:1}
+.wiz-num{width:32px;height:32px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:var(--muted);transition:all .3s}
+.wiz-step.active .wiz-num{background:var(--grad);border-color:transparent;color:#fff}
+.wiz-step.done .wiz-num{background:rgba(0,229,160,.15);border-color:var(--green);color:var(--green)}
+.wiz-step.done .wiz-num::before{content:'✓'}
+.wiz-label{font-size:.72rem;color:var(--muted);font-weight:600;white-space:nowrap}
+.wiz-step.active .wiz-label{color:#fff}
+.wiz-line{flex:1;height:1px;background:var(--border);min-width:20px;margin-top:-20px}
+
+.wiz-panel{display:none}
+.wiz-panel.active{display:block;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.wiz-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem}
+@media(max-width:700px){.wiz-form-grid{grid-template-columns:1fr}}
+
+/* STYLE PICKER */
+.style-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1rem}
+.style-card{border:2px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .25s,transform .25s;background:var(--surface)}
+.style-card:hover{transform:translateY(-3px)}
+.style-card.selected{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,95,255,.15)}
+.style-preview{height:90px}
+.style-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:#fff;padding:.7rem .9rem 0}
+.style-desc{font-size:.74rem;color:var(--muted);padding:.2rem .9rem .8rem}
+
+/* AI GENERATING */
+.ai-spinner{width:64px;height:64px;border-radius:50%;border:3px solid var(--border);border-top-color:var(--accent);border-right-color:var(--accent2);margin:0 auto;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.gen-log{max-width:420px;margin:1.5rem auto 0;text-align:left;display:flex;flex-direction:column;gap:.6rem}
+.gen-log-item{display:flex;align-items:center;gap:.6rem;font-size:.84rem;color:var(--muted);opacity:0;animation:fadeUp .4s ease forwards}
+.gen-log-item.done{color:var(--text)}
+.gen-check{width:18px;height:18px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.68rem;flex-shrink:0;transition:all .3s}
+.gen-log-item.done .gen-check{background:var(--green);border-color:var(--green);color:#000}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.review-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem}
+.rc-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
+.rc-stars{color:#FFB930;font-size:.85rem;letter-spacing:1px;margin-top:.1rem}
+.rc-text{color:var(--muted);font-size:.84rem;line-height:1.65;margin-bottom:.9rem;font-style:italic}
+.rc-name{font-size:.8rem;font-weight:600;color:#fff}
+.rc-platform{font-size:.72rem;color:var(--muted)}
+.review-input-row{display:flex;gap:.8rem;margin-bottom:1.4rem;flex-wrap:wrap}
+.input-field{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.6rem .9rem;color:var(--text);font-size:.84rem;outline:none;flex:1;min-width:180px}
+.input-field:focus{border-color:var(--accent)}
+.input-field::placeholder{color:var(--muted)}
+
+/* SUBSCRIPTION MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:center;justify-content:center;padding:1rem}
+.modal-box{background:var(--surface);border:1px solid rgba(91,95,255,.3);border-radius:20px;max-width:480px;width:100%;position:relative;animation:popIn .3s ease;max-height:90vh;display:flex;flex-direction:column;overflow:hidden}
+.modal-scroll{padding:2.2rem;overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch}
+@keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+.modal-close{position:absolute;top:1rem;right:1rem;background:var(--card);border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:color .2s}
+.modal-close:hover{color:#fff}
+.modal-title{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:.4rem}
+.modal-sub{color:var(--muted);font-size:.88rem;margin-bottom:1.5rem}
+.modal-plan-display{background:rgba(91,95,255,.08);border:1px solid rgba(91,95,255,.2);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}
+.mpd-name{font-family:'Syne',sans-serif;font-weight:700;color:#fff}
+.mpd-price{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#fff}
+.mpd-price sup{font-size:.8rem;vertical-align:top;margin-top:.35rem;display:inline-block;color:var(--muted)}
+.form-group{margin-bottom:1rem}
+.form-label{font-size:.75rem;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.4rem;display:block}
+.form-input{width:100%;background:var(--card);border:1px solid var(--border);border-radius:9px;padding:.7rem 1rem;color:var(--text);font-size:.88rem;outline:none;transition:border-color .2s}
+.form-input:focus{border-color:var(--accent)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.modal-submit{width:100%;background:var(--grad);color:#fff;border:none;padding:.9rem;border-radius:10px;font-weight:700;font-size:.96rem;cursor:pointer;margin-top:.5rem;box-shadow:0 6px 24px rgba(91,95,255,.35);transition:transform .2s,box-shadow .2s}
+.modal-submit:hover{transform:translateY(-1px);box-shadow:0 10px 32px rgba(91,95,255,.45)}
+.secure-note{display:flex;align-items:center;justify-content:center;gap:.4rem;color:var(--muted);font-size:.75rem;margin-top:.7rem}
+
+/* SUCCESS */
+.success-screen{text-align:center;padding:2rem}
+.success-icon{width:70px;height:70px;background:rgba(0,229,160,.12);border:2px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1.2rem;animation:popIn .4s ease}
+.success-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:.5rem}
+.success-sub{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem}
+
+/* PAGE HEADER */
+.page-header{margin-bottom:1.8rem}
+.page-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:.25rem}
+.page-subtitle{color:var(--muted);font-size:.85rem}
+
+/* RESPONSIVE */
+@media(max-width:900px){.sidebar{transform:translateX(-100%)}.dash-main{margin-left:0}.email-composer{grid-template-columns:1fr}.activity-row{grid-template-columns:1fr}.chat-layout{grid-template-columns:1fr;height:auto}}
+@media(max-width:600px){.hero h1{font-size:2.2rem}.hero-stats{gap:1.5rem}.wb-layout{grid-template-columns:1fr;height:auto}}
+</style>
+</head>
+<body>
+
+<!-- ══════════ LANDING PAGE ══════════ -->
+<div id="landing">
+
+<nav>
+  <div class="logo">Adwik<span>Flow</span></div>
+  <div class="nav-right">
+    <button class="nav-link" onclick="scrollToSection('#services')">Services</button>
+    <button class="nav-link" onclick="scrollToSection('#services')">Pricing</button>
+    <button class="btn-grad" onclick="scrollToSection('#services')">Start Free Trial</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="hero-badge"><i></i> AI-Powered · 14 Tools · 1 Platform</div>
+  <h1>Your Entire Business.<br><span class="grad-text">Automated & Growing.</span></h1>
+  <p class="hero-sub">Websites, CRM, AI agents, email, WhatsApp, bookings, payments, courses, reviews — everything your business needs, in one place.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="scrollToSection('#services')">Explore All Services ↓</button>
+    <button class="btn-outline" onclick="enterDashboard('demo','overview')">View Dashboard Demo</button>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-n">50<em>K+</em></div><div class="stat-l">Businesses powered</div></div>
+    <div class="stat"><div class="stat-n">14</div><div class="stat-l">Tools replaced</div></div>
+    <div class="stat"><div class="stat-n">$1.2<em>B</em></div><div class="stat-l">Revenue generated</div></div>
+    <div class="stat"><div class="stat-n">98<em>%</em></div><div class="stat-l">Satisfaction rate</div></div>
+  </div>
+</section>
+
+<!-- SERVICES WITH EXPANDABLE SECTIONS -->
+<div id="services" class="services-section">
+  <div class="sec-label">Everything Included</div>
+  <h2 class="sec-title">Click any service to explore & subscribe</h2>
+  <p class="sec-sub">Each tool works standalone or together. Explore features, pick your plan, and activate your workspace instantly.</p>
+
+  <div class="service-list" id="serviceList"></div>
+</div>
+
+</div><!-- /landing -->
+
+<!-- ══════════ DASHBOARD ══════════ -->
+<div id="dashboard">
+
+<div class="dash-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      Adwik<span>Flow</span>
+      <small>✦ Active Subscription</small>
+    </div>
+    <div class="nav-section">Overview</div>
+    <button class="nav-item active" data-page="overview" onclick="showPage('overview',this)"><span class="ni">🏠</span> Dashboard</button>
+    <button class="nav-item" data-page="leads" onclick="showPage('leads',this)"><span class="ni">👥</span> Leads & CRM</button>
+    <button class="nav-item" data-page="pipeline" onclick="showPage('pipeline',this)"><span class="ni">📊</span> Pipeline</button>
+
+    <div class="nav-section">Tools</div>
+    <button class="nav-item" data-page="automation" onclick="showPage('automation',this)"><span class="ni">⚡</span> Automation</button>
+    <button class="nav-item" data-page="calendar" onclick="showPage('calendar',this)"><span class="ni">📅</span> Calendar</button>
+    <button class="nav-item" data-page="email" onclick="showPage('email',this)"><span class="ni">📧</span> Email Builder</button>
+    <button class="nav-item" data-page="whatsapp" onclick="showPage('whatsapp',this)"><span class="ni">💬</span> WhatsApp / SMS</button>
+    <button class="nav-item" data-page="website" onclick="showPage('website',this)"><span class="ni">🌐</span> Website Builder</button>
+    <button class="nav-item" data-page="reviews" onclick="showPage('reviews',this)"><span class="ni">⭐</span> Reviews</button>
+    <button class="nav-item" data-page="analytics" onclick="showPage('analytics',this)"><span class="ni">📈</span> Analytics</button>
+
+    <div class="nav-section">Account</div>
+    <button class="nav-item" data-page="billing" onclick="showPage('billing',this)"><span class="ni">💳</span> Billing</button>
+    <button class="nav-item" onclick="backToLanding()"><span class="ni">←</span> Back to Home</button>
+
+    <div class="sidebar-bottom">
+      <div class="user-pill">
+        <div class="user-avatar" id="userAvatar">U</div>
+        <div class="user-info">
+          <div class="u-name" id="userName">User</div>
+          <div class="u-plan" id="userPlan">Agency Plan</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <div class="topbar-title" id="pageTitle">Dashboard Overview</div>
+      <div class="topbar-right">
+        <button class="notif-btn" title="Notifications">🔔</button>
+        <button class="notif-btn" title="Settings">⚙️</button>
+        <div class="user-avatar" id="topAvatar" style="width:36px;height:36px;font-size:.8rem">U</div>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="dash-page active" id="page-overview">
+      <div class="page-header">
+        <div class="page-title">Welcome back! 👋</div>
+        <div class="page-subtitle">Here's what's happening with your business today.</div>
+      </div>
+      <div class="overview-grid">
+        <div class="ov-card"><div class="ov-label">Total Leads</div><div class="ov-val">1,248 <em>↑12%</em></div><div class="ov-sub">vs last month</div></div>
+        <div class="ov-card"><div class="ov-label">Revenue</div><div class="ov-val">₹2.4L <em>↑8%</em></div><div class="ov-sub">this month</div></div>
+        <div class="ov-card"><div class="ov-label">Appointments</div><div class="ov-val">84 <em>↑22%</em></div><div class="ov-sub">scheduled this week</div></div>
+        <div class="ov-card"><div class="ov-label">Emails Sent</div><div class="ov-val">3,920 <em>↑5%</em></div><div class="ov-sub">open rate 42%</div></div>
+      </div>
+      <div class="activity-row">
+        <div class="dash-card">
+          <div class="dash-card-title">Recent Leads <span class="badge-green">Live</span></div>
+          <table class="leads-table">
+            <thead><tr><th>Name</th><th>Source</th><th>Status</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Ravi Sharma</td><td>Facebook Ad</td><td><span class="status-pill status-hot">Hot</span></td><td>₹45,000</td></tr>
+              <tr><td>Priya Mehta</td><td>Website</td><td><span class="status-pill status-new">New</span></td><td>₹22,000</td></tr>
+              <tr><td>Anjali Singh</td><td>WhatsApp</td><td><span class="status-pill status-won">Won</span></td><td>₹80,000</td></tr>
+              <tr><td>Vikram Rao</td><td>Referral</td><td><span class="status-pill status-follow">Follow Up</span></td><td>₹35,000</td></tr>
+              <tr><td>Neha Gupta</td><td>Email Campaign</td><td><span class="status-pill status-new">New</span></td><td>₹18,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">Lead Sources <span class="badge-yellow">This Month</span></div>
+          <div class="mini-chart">
+            <div class="bar-row"><div class="bar-label">Facebook</div><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div><div class="bar-val">78%</div></div>
+            <div class="bar-row"><div class="bar-label">Website</div><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><div class="bar-val">55%</div></div>
+            <div class="bar-row"><div class="bar-label">WhatsApp</div><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><div class="bar-val">42%</div></div>
+            <div class="bar-row"><div class="bar-label">Email</div><div class="bar-track"><div class="bar-fill" style="width:31%"></div></div><div class="bar-val">31%</div></div>
+            <div class="bar-row"><div class="bar-label">Referral</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-val">20%</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEADS / CRM -->
+    <div class="dash-page" id="page-leads">
+      <div class="page-header"><div class="page-title">Leads & CRM</div><div class="page-subtitle">Manage all your contacts and conversations.</div></div>
+      <input class="contacts-search" placeholder="🔍  Search contacts..." oninput="filterContacts(this.value)">
+      <div class="dash-card">
+        <table class="contacts-table" id="contactsTable">
+          <thead><tr><th>Contact</th><th>Phone</th><th>Email</th><th>Source</th><th>Status</th><th>Value</th></tr></thead>
+          <tbody id="contactsBody">
+            <tr><td><div class="c-avatar" style="background:linear-gradient(135deg,#5B5FFF,#A259FF)">RS</div>Ravi Sharma</td><td>+91 98765 43210</td><td>ravi@email.com</td><td>Facebook</td><td><span class="status-pill status-hot">Hot</span></td><td>₹45,000</td></tr>
+            <tr><td><div class="c-avatar" style="background:linear-gradient(135deg,#00E5A0,#5B5FFF)">PM</div>Priya Mehta</td><td>+91 87654 32109</td><td>priya@email.com</td><td>Website</td><td><span class="status-pill status-new">New</span></td><td>₹22,000</td></tr>
+            <tr><td><div class="c-avatar" style="background:linear-gradient(135deg,#A259FF,#FF5C7A)">AS</div>Anjali Singh</td><td>+91 76543 21098</td><td>anjali@email.com</td><td>WhatsApp</td><td><span class="status-pill status-won">Won</span></td><td>₹80,000</td></tr>
+            <tr><td><div class="c-avatar" style="background:linear-gradient(135deg,#FFB930,#FF5C7A)">VR</div>Vikram Rao</td><td>+91 65432 10987</td><td>vikram@email.com</td><td>Referral</td><td><span class="status-pill status-follow">Follow Up</span></td><td>₹35,000</td></tr>
+            <tr><td><div class="c-avatar" style="background:linear-gradient(135deg,#5B5FFF,#00E5A0)">NG</div>Neha Gupta</td><td>+91 54321 09876</td><td>neha@email.com</td><td>Email</td><td><span class="status-pill status-new">New</span></td><td>₹18,000</td></tr>
+            <tr><td><div class="c-avatar" style="background:linear-gradient(135deg,#A259FF,#5B5FFF)">AK</div>Arjun Kumar</td><td>+91 43210 98765</td><td>arjun@email.com</td><td>Google</td><td><span class="status-pill status-hot">Hot</span></td><td>₹60,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PIPELINE -->
+    <div class="dash-page" id="page-pipeline">
+      <div class="page-header"><div class="page-title">Sales Pipeline</div><div class="page-subtitle">Drag leads through your sales stages.</div></div>
+      <div class="pipeline-row">
+        <div class="pipe-stage">
+          <div class="pipe-stage-name">New Lead</div>
+          <div class="pipe-card"><div class="pc-name">Ravi Sharma</div><div class="pc-val">₹45,000</div></div>
+          <div class="pipe-card"><div class="pc-name">Neha Gupta</div><div class="pc-val">₹18,000</div></div>
+        </div>
+        <div class="pipe-stage">
+          <div class="pipe-stage-name">Contacted</div>
+          <div class="pipe-card"><div class="pc-name">Priya Mehta</div><div class="pc-val">₹22,000</div></div>
+          <div class="pipe-card"><div class="pc-name">Arjun Kumar</div><div class="pc-val">₹60,000</div></div>
+        </div>
+        <div class="pipe-stage">
+          <div class="pipe-stage-name">Proposal Sent</div>
+          <div class="pipe-card"><div class="pc-name">Vikram Rao</div><div class="pc-val">₹35,000</div></div>
+        </div>
+        <div class="pipe-stage">
+          <div class="pipe-stage-name">Negotiation</div>
+          <div class="pipe-card"><div class="pc-name">Anjali Singh</div><div class="pc-val">₹80,000</div></div>
+        </div>
+        <div class="pipe-stage">
+          <div class="pipe-stage-name">Won ✓</div>
+          <div class="pipe-card" style="border-left:3px solid var(--green)"><div class="pc-name">Sunita Patel</div><div class="pc-val">₹1,20,000</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUTOMATION -->
+    <div class="dash-page" id="page-automation">
+      <div class="page-header"><div class="page-title">Automation Builder</div><div class="page-subtitle">Build workflows that run on autopilot.</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;align-items:start">
+        <div class="dash-card">
+          <div class="dash-card-title">New Lead Follow-Up Flow</div>
+          <div class="flow-builder">
+            <div class="flow-node trigger"><div class="node-icon" style="background:rgba(91,95,255,.15)">⚡</div><div class="node-text"><div class="nt-type">Trigger</div><div class="nt-name">New Lead Captured</div></div></div>
+            <div class="flow-connector"></div>
+            <div class="flow-node action"><div class="node-icon" style="background:rgba(0,229,160,.1)">📱</div><div class="node-text"><div class="nt-type">Action</div><div class="nt-name">Send WhatsApp Welcome</div></div></div>
+            <div class="flow-connector"></div>
+            <div class="flow-node condition"><div class="node-icon" style="background:rgba(255,185,48,.1)">🔀</div><div class="node-text"><div class="nt-type">Condition</div><div class="nt-name">Did they reply?</div></div></div>
+            <div class="flow-connector"></div>
+            <div class="flow-node action"><div class="node-icon" style="background:rgba(0,229,160,.1)">📧</div><div class="node-text"><div class="nt-type">Action</div><div class="nt-name">Send Follow-up Email</div></div></div>
+            <div class="flow-connector"></div>
+            <div class="flow-node action"><div class="node-icon" style="background:rgba(91,95,255,.15)">📅</div><div class="node-text"><div class="nt-type">Action</div><div class="nt-name">Book Appointment</div></div></div>
+            <div class="flow-connector"></div>
+            <div class="add-node" onclick="alert('Add new step — connect your triggers, conditions and actions!')">+ Add Step</div>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">Active Flows <span class="badge-green">3 Running</span></div>
+          <div style="display:flex;flex-direction:column;gap:.8rem;margin-top:.5rem">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.9rem;display:flex;align-items:center;justify-content:space-between">
+              <div><div style="font-size:.86rem;font-weight:600;color:#fff">New Lead Follow-Up</div><div style="font-size:.75rem;color:var(--muted)">Triggered 24 times today</div></div>
+              <div class="badge-green">Active</div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.9rem;display:flex;align-items:center;justify-content:space-between">
+              <div><div style="font-size:.86rem;font-weight:600;color:#fff">Post-Purchase Review Request</div><div style="font-size:.75rem;color:var(--muted)">Triggered 8 times today</div></div>
+              <div class="badge-green">Active</div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.9rem;display:flex;align-items:center;justify-content:space-between">
+              <div><div style="font-size:.86rem;font-weight:600;color:#fff">Appointment Reminder</div><div style="font-size:.75rem;color:var(--muted)">Triggered 15 times today</div></div>
+              <div class="badge-green">Active</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALENDAR -->
+    <div class="dash-page" id="page-calendar">
+      <div class="page-header"><div class="page-title">Appointment Calendar</div><div class="page-subtitle">Manage bookings and schedule appointments.</div></div>
+      <div class="dash-card">
+        <div class="dash-card-title">June 2026</div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="dash-page" id="page-email">
+      <div class="page-header"><div class="page-title">Email Campaign Builder</div><div class="page-subtitle">Design and send beautiful email campaigns.</div></div>
+      <div class="email-composer">
+        <div>
+          <div class="dash-card" style="margin-bottom:1.2rem">
+            <div class="dash-card-title">Compose Email</div>
+            <input class="email-subject" placeholder="Subject: Your amazing offer awaits...">
+            <textarea class="email-body" placeholder="Hi {{first_name}},&#10;&#10;We have an exclusive offer just for you...&#10;&#10;Best regards,&#10;Your Team">Hi {{first_name}},
+
+We have an exclusive offer just for you this month. As one of our valued customers, we'd love to give you early access to our newest features.
+
+Click below to claim your offer before it expires.
+
+Best regards,
+The AdwikFlow Team</textarea>
+          </div>
+          <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+            <button class="btn-primary" onclick="alert('Campaign sent to 1,248 contacts!')">Send Campaign →</button>
+            <button class="btn-outline" onclick="alert('Saved as draft!')">Save Draft</button>
+            <button class="btn-outline" onclick="alert('Preview opened!')">Preview</button>
+          </div>
+        </div>
+        <div class="email-tools">
+          <div class="et-label">Content Blocks</div>
+          <div class="block-list">
+            <div class="block-item" onclick="alert('Hero image block added!')">🖼️ Hero Image</div>
+            <div class="block-item" onclick="alert('Button block added!')">🔘 CTA Button</div>
+            <div class="block-item" onclick="alert('Video block added!')">🎬 Video Embed</div>
+            <div class="block-item" onclick="alert('Testimonial block added!')">💬 Testimonial</div>
+            <div class="block-item" onclick="alert('Divider added!')">➖ Divider</div>
+          </div>
+          <div class="et-label">Campaign Stats</div>
+          <div style="display:flex;flex-direction:column;gap:.5rem">
+            <div style="display:flex;justify-content:space-between;font-size:.82rem"><span style="color:var(--muted)">Open Rate</span><span style="color:var(--green);font-weight:600">42.3%</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:.82rem"><span style="color:var(--muted)">Click Rate</span><span style="color:var(--accent);font-weight:600">18.7%</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:.82rem"><span style="color:var(--muted)">Unsubscribes</span><span style="color:var(--red);font-weight:600">0.4%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHATSAPP / SMS -->
+    <div class="dash-page" id="page-whatsapp">
+      <div class="page-header"><div class="page-title">WhatsApp & SMS</div><div class="page-subtitle">Chat with leads and customers in real-time.</div></div>
+      <div class="dash-card">
+        <div class="chat-layout">
+          <div class="chat-list">
+            <div class="chat-contact active" onclick="setActiveChat(this,'Ravi Sharma')"><div style="display:flex;justify-content:space-between"><div class="cc-name">Ravi Sharma</div><div class="cc-time">2m ago</div></div><div class="cc-prev">Interested in the ₹45K plan</div></div>
+            <div class="chat-contact" onclick="setActiveChat(this,'Priya Mehta')"><div style="display:flex;justify-content:space-between"><div class="cc-name">Priya Mehta</div><div class="cc-time">18m ago</div></div><div class="cc-prev">Can we schedule a call?</div></div>
+            <div class="chat-contact" onclick="setActiveChat(this,'Anjali Singh')"><div style="display:flex;justify-content:space-between"><div class="cc-name">Anjali Singh</div><div class="cc-time">1h ago</div></div><div class="cc-prev">Payment done ✓</div></div>
+            <div class="chat-contact" onclick="setActiveChat(this,'Vikram Rao')"><div style="display:flex;justify-content:space-between"><div class="cc-name">Vikram Rao</div><div class="cc-time">3h ago</div></div><div class="cc-prev">Send me the proposal</div></div>
+          </div>
+          <div class="chat-window">
+            <div class="chat-header" id="chatHeader">💬 Ravi Sharma · WhatsApp</div>
+            <div class="chat-messages" id="chatMessages">
+              <div class="msg msg-in">Hi! I saw your ad on Facebook. Interested in learning more about your services.</div>
+              <div class="msg msg-out">Hello Ravi! Thanks for reaching out 🙏 I'd love to tell you more. Which service interests you most?</div>
+              <div class="msg msg-in">The website + CRM combo looks great. What's the pricing?</div>
+              <div class="msg msg-out">Great choice! Our Agency plan at ₹24,999/month covers both plus 10 more tools. Want me to send you a detailed breakdown?</div>
+            </div>
+            <div class="chat-input-row">
+              <input class="chat-input" id="chatInput" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendMsg()">
+              <button class="send-btn" onclick="sendMsg()">➤</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEBSITE BUILDER -->
+    <div class="dash-page" id="page-website">
+      <div class="page-header"><div class="page-title">AI Website Builder</div><div class="page-subtitle">Tell us about your business — AI builds and publishes your site in seconds.</div></div>
+
+      <!-- MY WEBSITES -->
+      <div class="dash-card" id="mySitesCard" style="margin-bottom:1.4rem;display:none">
+        <div class="dash-card-title">My Websites <span class="badge-green" id="mySitesCount">0 sites</span></div>
+        <div class="my-sites-grid" id="mySitesGrid"></div>
+        <button class="btn-buy" style="margin-top:1.1rem" onclick="startNewSite()">+ Build a New Website</button>
+      </div>
+
+      <!-- WIZARD -->
+      <div id="wizardWrap" style="display:none">
+      <button class="btn-outline" id="backToSitesBtn" style="padding:.4rem 1rem;font-size:.8rem;margin-bottom:1rem;display:none" onclick="showMySites()">← Back to My Websites</button>
+
+      <!-- WIZARD STEP INDICATOR -->
+      <div class="wiz-steps" id="wizSteps">
+        <div class="wiz-step active" data-step="1"><div class="wiz-num">1</div><div class="wiz-label">Business Details</div></div>
+        <div class="wiz-line"></div>
+        <div class="wiz-step" data-step="2"><div class="wiz-num">2</div><div class="wiz-label">Choose Style</div></div>
+        <div class="wiz-line"></div>
+        <div class="wiz-step" data-step="3"><div class="wiz-num">3</div><div class="wiz-label">AI Generates</div></div>
+        <div class="wiz-line"></div>
+        <div class="wiz-step" data-step="4"><div class="wiz-num">4</div><div class="wiz-label">Published</div></div>
+      </div>
+
+      <!-- STEP 1: BUSINESS DETAILS -->
+      <div class="wiz-panel active" id="wizPanel1">
+        <div class="dash-card">
+          <div class="dash-card-title">Tell us about your business</div>
+          <div class="wiz-form-grid">
+            <div class="form-group">
+              <label class="form-label">Business Name</label>
+              <input class="form-input" id="wbBizName" placeholder="e.g. Shree Balaji Furniture" oninput="this.style.borderColor='';document.getElementById('wbNameError').style.display='none'">
+              <div id="wbNameError" style="display:none;color:var(--red);font-size:.78rem;margin-top:.4rem">⚠ Please enter your business name to continue</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Industry / Category</label>
+              <select class="form-input" id="wbIndustry">
+                <option value="furniture">Furniture & Interior</option>
+                <option value="restaurant">Restaurant & Food</option>
+                <option value="salon">Salon & Spa</option>
+                <option value="realestate">Real Estate</option>
+                <option value="fitness">Fitness & Gym</option>
+                <option value="clinic">Clinic & Healthcare</option>
+                <option value="agency">Digital Agency</option>
+                <option value="retail">Retail Store</option>
+                <option value="education">Education / Coaching</option>
+                <option value="other">Other Business</option>
+              </select>
+            </div>
+            <div class="form-group" style="grid-column:1/-1">
+              <label class="form-label">What does your business do?</label>
+              <textarea class="form-input" id="wbDesc" rows="3" style="resize:vertical" placeholder="e.g. We design and manufacture premium custom furniture for homes and offices in Raipur, with 15+ years of craftsmanship.">We design and manufacture premium custom furniture for homes and offices, with over 15 years of craftsmanship and a passion for quality.</textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">City / Location</label>
+              <input class="form-input" id="wbCity" placeholder="e.g. Raipur, Chhattisgarh" value="Raipur, Chhattisgarh">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone / WhatsApp Number</label>
+              <input class="form-input" id="wbPhone" placeholder="+91 98765 43210">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Preferred Subdomain</label>
+              <div style="display:flex;align-items:center;gap:.4rem">
+                <input class="form-input" id="wbSubdomain" placeholder="yourbusiness" style="flex:1" oninput="this.value=this.value.toLowerCase().replace(/[^a-z0-9-]/g,'')">
+                <span style="color:var(--muted);font-size:.85rem;white-space:nowrap">.adwikflow.io</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Primary Goal</label>
+              <select class="form-input" id="wbGoal">
+                <option value="leads">Generate Leads / Enquiries</option>
+                <option value="sales">Sell Products Online</option>
+                <option value="bookings">Get Appointment Bookings</option>
+                <option value="brand">Build Brand Presence</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn-buy" style="margin-top:1.2rem" onclick="goToStyleStep()">Continue to Style Selection →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: STYLE PICKER -->
+      <div class="wiz-panel" id="wizPanel2">
+        <div class="dash-card">
+          <div class="dash-card-title">Choose a visual style for your site</div>
+          <div class="style-grid">
+            <div class="style-card selected" data-style="luxury" onclick="selectStyle(this)">
+              <div class="style-preview" style="background:linear-gradient(135deg,#1a1a1a,#2b2b2b);position:relative">
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+                  <div style="width:60%;height:6px;background:#D4AF37;border-radius:2px"></div>
+                  <div style="width:40%;height:4px;background:rgba(255,255,255,.3);border-radius:2px"></div>
+                </div>
+              </div>
+              <div class="style-name">Dark Luxury</div>
+              <div class="style-desc">Gold accents, premium feel</div>
+            </div>
+            <div class="style-card" data-style="minimal" onclick="selectStyle(this)">
+              <div class="style-preview" style="background:#fff;position:relative;border:1px solid #eee">
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+                  <div style="width:50%;height:6px;background:#222;border-radius:2px"></div>
+                  <div style="width:35%;height:4px;background:#999;border-radius:2px"></div>
+                </div>
+              </div>
+              <div class="style-name">Clean Minimal</div>
+              <div class="style-desc">Whitespace, simple & modern</div>
+            </div>
+            <div class="style-card" data-style="vibrant" onclick="selectStyle(this)">
+              <div class="style-preview" style="background:linear-gradient(135deg,#FF6B6B,#FFA94D);position:relative">
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+                  <div style="width:60%;height:6px;background:#fff;border-radius:2px"></div>
+                  <div style="width:40%;height:4px;background:rgba(255,255,255,.7);border-radius:2px"></div>
+                </div>
+              </div>
+              <div class="style-name">Bold Vibrant</div>
+              <div class="style-desc">Energetic colors, eye-catching</div>
+            </div>
+            <div class="style-card" data-style="corporate" onclick="selectStyle(this)">
+              <div class="style-preview" style="background:linear-gradient(135deg,#0F4C81,#1B6CA8);position:relative">
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+                  <div style="width:55%;height:6px;background:#fff;border-radius:2px"></div>
+                  <div style="width:35%;height:4px;background:rgba(255,255,255,.6);border-radius:2px"></div>
+                </div>
+              </div>
+              <div class="style-name">Corporate Blue</div>
+              <div class="style-desc">Trust, professional, B2B-friendly</div>
+            </div>
+            <div class="style-card" data-style="nature" onclick="selectStyle(this)">
+              <div class="style-preview" style="background:linear-gradient(135deg,#2D5F3E,#5B9279);position:relative">
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+                  <div style="width:55%;height:6px;background:#fff;border-radius:2px"></div>
+                  <div style="width:35%;height:4px;background:rgba(255,255,255,.6);border-radius:2px"></div>
+                </div>
+              </div>
+              <div class="style-name">Organic Green</div>
+              <div class="style-desc">Wellness, natural, calming</div>
+            </div>
+            <div class="style-card" data-style="creative" onclick="selectStyle(this)">
+              <div class="style-preview" style="background:linear-gradient(135deg,#A259FF,#5B5FFF);position:relative">
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+                  <div style="width:55%;height:6px;background:#fff;border-radius:2px"></div>
+                  <div style="width:35%;height:4px;background:rgba(255,255,255,.6);border-radius:2px"></div>
+                </div>
+              </div>
+              <div class="style-name">Creative Studio</div>
+              <div class="style-desc">Bold gradients, agency-style</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:.8rem;margin-top:1.4rem">
+            <button class="btn-outline" onclick="backToDetailsStep()">← Back</button>
+            <button class="btn-buy" onclick="startGeneration()">Generate My Website with AI ✦</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: AI GENERATING -->
+      <div class="wiz-panel" id="wizPanel3">
+        <div class="dash-card" style="text-align:center;padding:3rem 2rem">
+          <div class="ai-spinner"></div>
+          <div class="dash-card-title" style="justify-content:center;font-size:1.1rem;margin-top:1.5rem" id="genHeadline">Generating your website...</div>
+          <div class="gen-log" id="genLog"></div>
+        </div>
+      </div>
+
+      <!-- STEP 4: PUBLISHED RESULT -->
+      <div class="wiz-panel" id="wizPanel4">
+        <div class="dash-card" style="margin-bottom:1.2rem">
+          <div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap">
+            <div class="badge-green" style="font-size:.78rem">🟢 Live</div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;color:#fff" id="publishedUrl">yourbusiness.adwikflow.io</div>
+            <button class="btn-outline" style="padding:.4rem .9rem;font-size:.78rem" onclick="copyUrl()">📋 Copy Link</button>
+            <button class="btn-outline" style="padding:.4rem .9rem;font-size:.78rem" onclick="openFullPreview()">↗ Open Full Preview</button>
+            <button class="btn-buy" style="padding:.4rem .9rem;font-size:.78rem;margin-left:auto" onclick="startNewSite()">+ Build Another Site</button>
+          </div>
+        </div>
+
+        <div class="site-summary-grid" id="siteSummaryGrid"></div>
+
+        <div class="dash-card">
+          <div class="wb-canvas" id="resultCanvas">
+            <div class="wb-browser"><div class="wb-dot" style="background:#ff5f57"></div><div class="wb-dot" style="background:#febc2e"></div><div class="wb-dot" style="background:#28c840"></div><div class="wb-url" id="wbUrlBar">yourbusiness.adwikflow.io</div></div>
+            <div class="wb-pagetabs" id="wbPageTabs"></div>
+            <div class="wb-frame" id="resultFrame" style="overflow-y:auto;height:560px"></div>
+            <div style="padding:.6rem 1rem;border-top:1px solid #eee;display:flex;gap:.5rem;background:#fafafa">
+              <button onclick="alert('Opening editor — you can customize text, images, and colors here.')" style="background:#5B5FFF;color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;font-size:.78rem;font-weight:600;cursor:pointer">✏️ Edit Content</button>
+              <button onclick="backToDetailsStep()" style="background:#f0f0f0;color:#333;border:none;padding:.4rem 1rem;border-radius:6px;font-size:.78rem;cursor:pointer">🔁 Regenerate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div><!-- /wizardWrap -->
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="dash-page" id="page-reviews">
+      <div class="page-header"><div class="page-title">Reviews & Reputation</div><div class="page-subtitle">Collect and manage customer reviews automatically.</div></div>
+      <div class="dash-card" style="margin-bottom:1.2rem">
+        <div class="dash-card-title">Send Review Request</div>
+        <div class="review-input-row">
+          <input class="input-field" placeholder="Customer name">
+          <input class="input-field" placeholder="Phone / WhatsApp number">
+          <input class="input-field" placeholder="Email address">
+          <button class="btn-buy" onclick="alert('Review request sent via WhatsApp & Email!')">Send Request</button>
+        </div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">Recent Reviews <span class="badge-green">⭐ 4.8 avg</span></div>
+        <div class="reviews-grid" style="margin-top:1rem">
+          <div class="review-card"><div class="rc-top"><div><div class="rc-name">Ravi Sharma</div><div class="rc-stars">★★★★★</div></div></div><p class="rc-text">"Absolutely amazing service. The team delivered exactly what was promised, on time and within budget!"</p><div class="rc-platform">Google Review · 2 days ago</div></div>
+          <div class="review-card"><div class="rc-top"><div><div class="rc-name">Anjali Singh</div><div class="rc-stars">★★★★★</div></div></div><p class="rc-text">"AdwikFlow transformed how we manage our leads. The automation alone saves us 3 hours every day."</p><div class="rc-platform">Google Review · 5 days ago</div></div>
+          <div class="review-card"><div class="rc-top"><div><div class="rc-name">Vikram Rao</div><div class="rc-stars">★★★★☆</div></div></div><p class="rc-text">"Great platform with excellent support. The WhatsApp integration is particularly impressive."</p><div class="rc-platform">Facebook Review · 1 week ago</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div class="dash-page" id="page-analytics">
+      <div class="page-header"><div class="page-title">Analytics & Reports</div><div class="page-subtitle">Real-time insights into your business performance.</div></div>
+      <div class="analytics-grid">
+        <div class="chart-card">
+          <div class="chart-card-title">Lead Sources</div>
+          <div class="donut-wrap">
+            <div class="donut">
+              <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#0E1020" stroke-width="16"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#5B5FFF" stroke-width="16" stroke-dasharray="150 251"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#A259FF" stroke-width="16" stroke-dasharray="60 251" stroke-dashoffset="-150"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#00E5A0" stroke-width="16" stroke-dasharray="41 251" stroke-dashoffset="-210"/>
+              </svg>
+              <div class="donut-center"><div class="donut-val">1,248</div><div class="donut-lbl">total</div></div>
+            </div>
+            <div class="legend">
+              <div class="leg-item"><div class="leg-dot" style="background:#5B5FFF"></div> Facebook (60%)</div>
+              <div class="leg-item"><div class="leg-dot" style="background:#A259FF"></div> Website (24%)</div>
+              <div class="leg-item"><div class="leg-dot" style="background:#00E5A0"></div> WhatsApp (16%)</div>
+            </div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-title">Revenue This Month</div>
+          <div class="mini-chart" style="margin-top:.5rem">
+            <div class="bar-row"><div class="bar-label" style="width:45px">Week 1</div><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><div class="bar-val">₹52K</div></div>
+            <div class="bar-row"><div class="bar-label" style="width:45px">Week 2</div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><div class="bar-val">₹68K</div></div>
+            <div class="bar-row"><div class="bar-label" style="width:45px">Week 3</div><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><div class="bar-val">₹84K</div></div>
+            <div class="bar-row"><div class="bar-label" style="width:45px">Week 4</div><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div><div class="bar-val">₹36K</div></div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-title">Campaign Performance</div>
+          <div style="display:flex;flex-direction:column;gap:.7rem;margin-top:.5rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .8rem;background:var(--surface);border-radius:8px"><span style="font-size:.83rem;color:var(--text)">Email Open Rate</span><span style="color:var(--green);font-weight:700">42.3%</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .8rem;background:var(--surface);border-radius:8px"><span style="font-size:.83rem;color:var(--text)">WhatsApp Read Rate</span><span style="color:var(--green);font-weight:700">89.1%</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .8rem;background:var(--surface);border-radius:8px"><span style="font-size:.83rem;color:var(--text)">SMS Delivery Rate</span><span style="color:var(--accent);font-weight:700">97.8%</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .8rem;background:var(--surface);border-radius:8px"><span style="font-size:.83rem;color:var(--text)">Appt Booking Rate</span><span style="color:var(--yellow);font-weight:700">34.5%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BILLING -->
+    <div class="dash-page" id="page-billing">
+      <div class="page-header"><div class="page-title">Billing & Subscription</div><div class="page-subtitle">Manage your plan and payment details.</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem">
+        <div class="dash-card">
+          <div class="dash-card-title">Current Plan</div>
+          <div style="background:rgba(91,95,255,.08);border:1px solid rgba(91,95,255,.2);border-radius:12px;padding:1.2rem;margin-top:.5rem">
+            <div id="billingPlanName" style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:#fff">Agency Plan</div>
+            <div id="billingPlanPrice" style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff;margin:.3rem 0">$297<span style="font-size:.9rem;color:var(--muted)">/month</span></div>
+            <div style="color:var(--green);font-size:.8rem;margin-bottom:1rem">✓ Active — Next billing: July 29, 2026</div>
+            <button class="btn-outline" style="font-size:.82rem;padding:.5rem 1rem" onclick="alert('Upgrade options loaded!')">Upgrade Plan</button>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">Usage This Month</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:.5rem">
+            <div class="bar-row"><div class="bar-label" style="width:80px;font-size:.8rem">Contacts</div><div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><div class="bar-val" style="font-size:.75rem;width:55px">1,248/∞</div></div>
+            <div class="bar-row"><div class="bar-label" style="width:80px;font-size:.8rem">Emails</div><div class="bar-track"><div class="bar-fill" style="width:39%"></div></div><div class="bar-val" style="font-size:.75px;width:55px">3.9K/10K</div></div>
+            <div class="bar-row"><div class="bar-label" style="width:80px;font-size:.8rem">SMS</div><div class="bar-track"><div class="bar-fill" style="width:22%"></div></div><div class="bar-val" style="font-size:.75rem;width:55px">220/1K</div></div>
+            <div class="bar-row"><div class="bar-label" style="width:80px;font-size:.8rem">Storage</div><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><div class="bar-val" style="font-size:.75rem;width:55px">1.8/10GB</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+</div><!-- /dashboard -->
+
+<!-- PAYMENT MODAL -->
+<div class="modal-overlay" id="payModal" style="display:none" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-scroll"><div id="modalContent"></div></div>
+  </div>
+</div>
+
+<script>
+// ══ SERVICE DATA ══
+const services = [
+  {
+    id:'website', icon:'🌐', color:'rgba(91,95,255,.14)', name:'Website & Funnel Builder',
+    tagline:'Build stunning websites and high-converting funnels',
+    desc:'Drag-and-drop builder for landing pages, full websites, and multi-step sales funnels. Choose from 100+ templates. No code needed. Launch in minutes.',
+    features:['Drag-and-drop editor','100+ templates','Custom domain','Mobile responsive','SEO tools','A/B testing','Fast hosting','Form builder'],
+    plans:[
+      {name:'Starter',price:'₹2,999',period:'/month',pop:false,features:['1 website','5 funnels','Unlimited pages','Basic templates','SSL included']},
+      {name:'Pro',price:'₹5,999',period:'/month',pop:true,features:['Unlimited websites','Unlimited funnels','Premium templates','A/B testing','Custom domain','Priority support']},
+    ]
+  },
+  {
+    id:'crm', icon:'🗂️', color:'rgba(0,229,160,.1)', name:'CRM & Lead Management',
+    tagline:'Never lose a lead — track every contact and deal',
+    desc:'Full-featured CRM to manage contacts, deals, and pipelines. See your entire sales process at a glance. Assign tasks, add notes, and close deals faster.',
+    features:['Contact management','Deal pipelines','Task assignment','Activity timeline','Lead scoring','Bulk actions','Custom fields','Import/Export'],
+    plans:[
+      {name:'Basic',price:'₹1,999',period:'/month',pop:false,features:['Up to 1,000 contacts','3 pipelines','Basic reporting','Email integration']},
+      {name:'Growth',price:'₹3,999',period:'/month',pop:true,features:['Unlimited contacts','Unlimited pipelines','Advanced reporting','API access','Custom fields','Team access']},
+    ]
+  },
+  {
+    id:'ai', icon:'🤖', color:'rgba(162,89,255,.14)', name:'AI Chatbot & Voice Agent',
+    tagline:'24/7 AI that talks to leads like a human',
+    desc:'Deploy AI chatbots on your website and AI voice agents on your phone lines. They qualify leads, answer questions, book appointments, and handle objections — automatically, around the clock.',
+    features:['24/7 AI responses','Voice call handling','Lead qualification','Appointment booking','Multi-language','Sentiment analysis','Handoff to human','Custom training'],
+    plans:[
+      {name:'Starter AI',price:'₹4,999',period:'/month',pop:false,features:['1 chatbot','500 conversations/mo','Basic training','WhatsApp & Web']},
+      {name:'AI Pro',price:'₹9,999',period:'/month',pop:true,features:['Unlimited chatbots','Unlimited conversations','Voice agent included','Custom AI training','Advanced analytics','Priority support']},
+    ]
+  },
+  {
+    id:'automation', icon:'⚡', color:'rgba(255,185,48,.1)', name:'Marketing Automation',
+    tagline:'Build powerful workflows that run on autopilot',
+    desc:'Trigger automated sequences based on lead behaviour — emails, SMS, WhatsApp, internal tasks — all without lifting a finger. Set it once, let it run forever.',
+    features:['Visual flow builder','Behaviour triggers','Multi-channel actions','Conditional logic','Delay timers','Lead tagging','Webhook support','Pre-built templates'],
+    plans:[
+      {name:'Basic',price:'₹2,499',period:'/month',pop:false,features:['5 active flows','Basic triggers','Email & SMS actions','500 contacts/flow']},
+      {name:'Unlimited',price:'₹4,999',period:'/month',pop:true,features:['Unlimited flows','All trigger types','All action types','Unlimited contacts','Advanced conditions','Team collaboration']},
+    ]
+  },
+  {
+    id:'messaging', icon:'💬', color:'rgba(91,95,255,.12)', name:'Email, SMS & WhatsApp',
+    tagline:'Reach customers on every channel they use',
+    desc:'Run multi-channel campaigns from one unified inbox. Send bulk emails, SMS blasts, and WhatsApp broadcasts. Personalise messages with dynamic tags and track every open and click.',
+    features:['Bulk email campaigns','SMS broadcasts','WhatsApp messaging','Dynamic personalisation','Campaign scheduling','Open & click tracking','Unsubscribe management','Templates library'],
+    plans:[
+      {name:'Starter',price:'₹1,499',period:'/month',pop:false,features:['5,000 emails/mo','500 SMS/mo','WhatsApp basic','Basic templates']},
+      {name:'Scale',price:'₹3,499',period:'/month',pop:true,features:['50,000 emails/mo','5,000 SMS/mo','WhatsApp unlimited','Advanced templates','A/B testing','Deliverability tools']},
+    ]
+  },
+  {
+    id:'booking', icon:'📅', color:'rgba(0,229,160,.1)', name:'Appointment Booking',
+    tagline:'Clients book, you get notified, no-shows drop',
+    desc:'Integrated calendar system with online booking pages, automated reminders via WhatsApp and SMS, and two-way sync with Google Calendar. Eliminate scheduling back-and-forth forever.',
+    features:['Online booking page','Google Calendar sync','Automated reminders','Group bookings','Buffer times','Timezone detection','Team calendars','Payment on booking'],
+    plans:[
+      {name:'Basic',price:'₹1,299',period:'/month',pop:false,features:['1 calendar','Unlimited bookings','Email reminders','Basic booking page']},
+      {name:'Pro',price:'₹2,999',period:'/month',pop:true,features:['Unlimited calendars','Team scheduling','WhatsApp reminders','Custom booking page','Payment integration','Analytics']},
+    ]
+  },
+  {
+    id:'payments', icon:'💳', color:'rgba(255,92,122,.1)', name:'Payments & Invoicing',
+    tagline:'Accept payments, subscriptions, and upsells seamlessly',
+    desc:'Built-in payment processing for one-time purchases, subscriptions, and payment plans. Send professional invoices, set up recurring billing, and manage your entire revenue from one dashboard.',
+    features:['Online payment links','Invoice generation','Subscription billing','One-click upsells','Payment plans','Auto-receipts','Revenue reports','Multi-currency'],
+    plans:[
+      {name:'Basic',price:'Free',period:'+ 2% transaction fee',pop:false,features:['Unlimited invoices','Payment links','Basic reporting','Stripe & Razorpay']},
+      {name:'Pro',price:'₹1,999',period:'/month + 0% fee',pop:true,features:['Everything in Basic','Subscription products','Upsell funnels','Revenue analytics','Priority payouts','API access']},
+    ]
+  },
+  {
+    id:'reviews', icon:'⭐', color:'rgba(255,185,48,.1)', name:'Reviews & Reputation',
+    tagline:'Get more 5-star reviews automatically',
+    desc:'Send automated review requests after service delivery. Monitor your ratings across Google, Facebook, and more. Respond to reviews from one dashboard and build your online reputation effortlessly.',
+    features:['Automated review requests','Google & Facebook monitoring','One-inbox response','Negative review alerts','Review widgets','Competitor tracking','Review reports','Multi-location support'],
+    plans:[
+      {name:'Basic',price:'₹999',period:'/month',pop:false,features:['1 location','500 review requests/mo','Google monitoring','Basic widget']},
+      {name:'Growth',price:'₹2,499',period:'/month',pop:true,features:['Unlimited locations','Unlimited requests','All platforms','Advanced widget','Competitor tracking','White-label reports']},
+    ]
+  },
+  {
+    id:'social', icon:'📱', color:'rgba(162,89,255,.12)', name:'Social Media Manager',
+    tagline:'Plan, publish, and analyse posts across every platform',
+    desc:'Schedule and publish posts across Instagram, Facebook, LinkedIn, and more from one dashboard. Plan your content calendar, track engagement, and never miss a post again.',
+    features:['Multi-platform posting','Content calendar','Post scheduling','Hashtag suggestions','Image editor','Analytics dashboard','Team collaboration','Best time to post'],
+    plans:[
+      {name:'Starter',price:'₹1,299',period:'/month',pop:false,features:['3 social profiles','30 posts/month','Basic calendar','Engagement stats']},
+      {name:'Agency',price:'₹3,499',period:'/month',pop:true,features:['Unlimited profiles','Unlimited posts','Advanced calendar','Content approval','White-label reports','Client access']},
+    ]
+  },
+];
+
+// ══ RENDER SERVICES ══
+const list = document.getElementById('serviceList');
+services.forEach((s,i)=>{
+  const item = document.createElement('div');
+  item.className='service-item';
+  item.innerHTML=`
+    <div class="service-header" onclick="toggleService(${i})">
+      <div class="svc-icon" style="background:${s.color}">${s.icon}</div>
+      <div class="svc-info">
+        <div class="svc-name">${s.name}</div>
+        <div class="svc-tagline">${s.tagline}</div>
+      </div>
+      <div class="svc-arrow">▾</div>
+    </div>
+    <div class="service-body">
+      <div class="svc-content">
+        <p class="svc-desc">${s.desc}</p>
+        <div class="svc-features-grid">${s.features.map(f=>`<div class="svc-feat">${f}</div>`).join('')}</div>
+        <div class="svc-pricing">
+          ${s.plans.map((p,j)=>`
+            <div class="price-opt${p.pop?' popular-opt':''}" onclick="selectPlan(this)">
+              <div class="p-name">${p.name}${p.pop?'<span class="pop-tag">Popular</span>':''}</div>
+              <div class="p-amount">${p.price}</div>
+              <div class="p-period">${p.period}</div>
+              <ul class="p-features">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+            </div>
+          `).join('')}
+        </div>
+        <div class="svc-cta-row">
+          <button class="btn-buy" onclick="openPayModal('${s.name}','${s.plans[0].price}','${s.plans[0].name}')">
+            Subscribe Now →
+          </button>
+          <span class="trial-note">14-day free trial · No credit card required</span>
+        </div>
+      </div>
+    </div>`;
+  list.appendChild(item);
+});
+
+function toggleService(i){
+  const items=document.querySelectorAll('.service-item');
+  const item=items[i];
+  const isOpen=item.classList.contains('open');
+  items.forEach(el=>el.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+function selectPlan(el){
+  const parent=el.closest('.svc-pricing');
+  parent.querySelectorAll('.price-opt').forEach(p=>p.classList.remove('selected'));
+  el.classList.add('selected');
+  // update buy button with selected plan
+  const name=el.querySelector('.p-name').textContent.replace('Popular','').trim();
+  const price=el.querySelector('.p-amount').textContent;
+  const svcName=el.closest('.service-item').querySelector('.svc-name').textContent;
+  const btn=el.closest('.svc-content').querySelector('.btn-buy');
+  btn.onclick=()=>openPayModal(svcName,price,name);
+}
+
+// ══ PAYMENT MODAL ══
+let selectedService='';
+let selectedPlan='';
+let selectedPrice='';
+let selectedTargetPage='overview';
+
+function openPayModal(svc,price,plan){
+  selectedService=svc; selectedPlan=plan; selectedPrice=price;
+  selectedTargetPage=serviceToPage[svc]||'overview';
+  document.getElementById('modalContent').innerHTML=`
+    <div class="modal-title">Complete Your Subscription</div>
+    <div class="modal-sub">You're one step away from activating <strong>${svc}</strong>.</div>
+    <div class="modal-plan-display">
+      <div><div class="mpd-name">${plan}</div><div style="font-size:.75rem;color:var(--muted)">${svc}</div></div>
+      <div class="mpd-price">${price}<span style="font-size:.75rem;color:var(--muted)">/mo</span></div>
+    </div>
+    <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" id="payName" placeholder="Ravi Sharma"></div>
+    <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" id="payEmail" placeholder="ravi@email.com"></div>
+    <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="payPhone" placeholder="+91 98765 43210"></div>
+    <div class="form-group"><label class="form-label">Card Number</label><input class="form-input" placeholder="4242 4242 4242 4242" maxlength="19" oninput="this.value=this.value.replace(/[^0-9 ]/g,'').replace(/(.{4})/g,'$1 ').trim()"></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Expiry</label><input class="form-input" placeholder="MM / YY" maxlength="7"></div>
+      <div class="form-group"><label class="form-label">CVV</label><input class="form-input" placeholder="123" maxlength="4" type="password"></div>
+    </div>
+    <button class="modal-submit" type="button" onclick="processPayment()">🔐 Subscribe & Activate — ${price}/mo</button>
+    <div class="secure-note">🔒 256-bit SSL · Powered by Razorpay</div>`;
+  document.getElementById('payModal').style.display='flex';
+}
+
+function processPayment(){
+  const nameInput=document.getElementById('payName');
+  const name=(nameInput && nameInput.value.trim())?nameInput.value.trim():'User';
+  const pageLabel={'website':'Website & Funnel Builder','leads':'CRM','automation':'Automation Builder','whatsapp':'WhatsApp & SMS','calendar':'Calendar','billing':'Billing','reviews':'Reviews','overview':'Dashboard'}[selectedTargetPage]||'Dashboard';
+  document.getElementById('modalContent').innerHTML=`
+    <div class="success-screen">
+      <div class="success-icon">✓</div>
+      <div class="success-title">You're all set, ${name.split(' ')[0]}!</div>
+      <div class="success-sub">Your <strong>${selectedPlan}</strong> plan for <strong>${selectedService}</strong> is now active. Taking you straight to <strong>${pageLabel}</strong>.</div>
+      <button class="btn-primary" type="button" style="margin:0 auto" id="goToDashboardBtn">Open ${pageLabel} →</button>
+    </div>`;
+  document.getElementById('goToDashboardBtn').addEventListener('click', function(){
+    enterDashboard(name, selectedTargetPage);
+  });
+}
+
+function closeModal(){document.getElementById('payModal').style.display='none'}
+
+// ══ DASHBOARD ══
+// Maps each purchasable service to the dashboard page that delivers it
+const serviceToPage={
+  'Website & Funnel Builder':'website',
+  'CRM & Lead Management':'leads',
+  'AI Chatbot & Voice Agent':'automation',
+  'Marketing Automation':'automation',
+  'Email, SMS & WhatsApp':'whatsapp',
+  'Appointment Booking':'calendar',
+  'Payments & Invoicing':'billing',
+  'Reviews & Reputation':'reviews',
+  'Social Media Manager':'website'
+};
+
+function enterDashboard(name, targetPage){
+  closeModal();
+  const finalName = name || 'User';
+  const finalTarget = targetPage || 'overview';
+  const initials=finalName&&finalName!=='demo'?finalName.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase():'DM';
+  const displayName=finalName==='demo'?'Demo User':finalName;
+  document.getElementById('userAvatar').textContent=initials;
+  document.getElementById('topAvatar').textContent=initials;
+  document.getElementById('userName').textContent=displayName;
+  document.getElementById('landing').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  buildCalendar();
+  window.scrollTo(0,0);
+
+  // Jump straight to the tool the user just subscribed to
+  const navBtn=document.querySelector(`.nav-item[data-page="${finalTarget}"]`);
+  showPage(finalTarget,navBtn);
+  if(navBtn)navBtn.scrollIntoView({block:'nearest'});
+}
+
+function backToLanding(){
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('landing').style.display='block';
+  window.scrollTo(0,0);
+}
+
+// ══ DASHBOARD PAGES ══
+function showPage(id,btn){
+  document.querySelectorAll('.dash-page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  const titles={overview:'Dashboard Overview',leads:'Leads & CRM',pipeline:'Sales Pipeline',automation:'Automation Builder',calendar:'Appointment Calendar',email:'Email Campaign Builder',whatsapp:'WhatsApp & SMS',website:'Website Builder',reviews:'Reviews & Reputation',analytics:'Analytics & Reports',billing:'Billing & Subscription'};
+  document.getElementById('pageTitle').textContent=titles[id]||'Dashboard';
+  if(id==='website') refreshMySitesView();
+}
+
+// ══ CALENDAR ══
+function buildCalendar(){
+  const g=document.getElementById('calGrid');
+  if(!g)return;
+  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  days.forEach(d=>{const el=document.createElement('div');el.className='cal-day-name';el.textContent=d;g.appendChild(el)});
+  const today=29; // June 29 2026 (today's date)
+  const events={3:['10am Call'],7:['Priya Meet','2pm Demo'],12:['Team Sync'],15:['Client Review'],18:['Sales Call','5pm Demo'],22:['3pm Meet'],25:['Anjali Call'],29:['4pm Demo'],30:['Team Review']};
+  const firstDay=1; // June 2026 starts on Monday (index 1)
+  for(let i=0;i<firstDay;i++){const el=document.createElement('div');el.className='cal-day';el.style.opacity='.3';g.appendChild(el)}
+  for(let d=1;d<=30;d++){
+    const el=document.createElement('div');
+    el.className='cal-day'+(d===today?' today':'')+(events[d]?' has-event':'');
+    let inner=`<div class="cal-num">${d}</div>`;
+    if(events[d])events[d].forEach((e,i)=>inner+=`<div class="cal-event${i===1?' type-call':i===2?' type-meet':''}">${e}</div>`);
+    el.innerHTML=inner;
+    el.onclick=()=>alert(`June ${d}: ${events[d]?events[d].join(', '):'No appointments. Click to add one!'}`);
+    g.appendChild(el);
+  }
+}
+
+// ══ CONTACTS FILTER ══
+function filterContacts(q){
+  document.querySelectorAll('#contactsBody tr').forEach(row=>{
+    row.style.display=row.textContent.toLowerCase().includes(q.toLowerCase())?'':'none';
+  });
+}
+
+// ══ CHAT ══
+function setActiveChat(el,name){
+  document.querySelectorAll('.chat-contact').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('chatHeader').textContent=`💬 ${name} · WhatsApp`;
+  document.getElementById('chatMessages').innerHTML=`<div class="msg msg-in">Hi! I'm interested in your services.</div><div class="msg msg-out">Hello ${name}! Great to hear from you 🙏</div>`;
+}
+
+function sendMsg(){
+  const inp=document.getElementById('chatInput');
+  const val=inp.value.trim();
+  if(!val)return;
+  const msgs=document.getElementById('chatMessages');
+  const msg=document.createElement('div');
+  msg.className='msg msg-out';
+  msg.textContent=val;
+  msgs.appendChild(msg);
+  inp.value='';
+  msgs.scrollTop=msgs.scrollHeight;
+  setTimeout(()=>{
+    const auto=document.createElement('div');
+    auto.className='msg msg-in';
+    auto.textContent='Thanks for your message! We will get back to you shortly.';
+    msgs.appendChild(auto);
+    msgs.scrollTop=msgs.scrollHeight;
+  },1000);
+}
+
+// ══ AI WEBSITE BUILDER WIZARD ══
+const wbStyles={
+  luxury:{bg:'#0F0F12',card:'#1A1A1F',accent:'#D4AF37',text:'#F5F0E6',muted:'#A89F8C',font:"'Georgia',serif",heroGrad:'linear-gradient(135deg,#0F0F12,#1f1a12)'},
+  minimal:{bg:'#FFFFFF',card:'#FAFAFA',accent:'#1A1A1A',text:'#1A1A1A',muted:'#777',font:"'Helvetica Neue',Arial,sans-serif",heroGrad:'linear-gradient(135deg,#fff,#f3f3f3)'},
+  vibrant:{bg:'#FFF8F0',card:'#FFFFFF',accent:'#FF6B6B',text:'#2B2B2B',muted:'#8a7a6a',font:"'Poppins',Arial,sans-serif",heroGrad:'linear-gradient(135deg,#FF6B6B,#FFA94D)'},
+  corporate:{bg:'#F7FAFD',card:'#FFFFFF',accent:'#0F4C81',text:'#1A2B3C',muted:'#5b7185',font:"'Arial',sans-serif",heroGrad:'linear-gradient(135deg,#0F4C81,#1B6CA8)'},
+  nature:{bg:'#F6F8F4',card:'#FFFFFF',accent:'#2D5F3E',text:'#223427',muted:'#6b8472',font:"'Georgia',serif",heroGrad:'linear-gradient(135deg,#2D5F3E,#5B9279)'},
+  creative:{bg:'#0E0B1A',card:'#181229',accent:'#A259FF',text:'#EDE9FF',muted:'#9b90c0',font:"'Poppins',Arial,sans-serif",heroGrad:'linear-gradient(135deg,#A259FF,#5B5FFF)'}
+};
+let wbSelectedStyle='luxury';
+let __mySites=[];
+let __editingSiteId=null;
+
+// ══ MY WEBSITES MANAGEMENT ══
+function refreshMySitesView(){
+  const card=document.getElementById('mySitesCard');
+  const wrap=document.getElementById('wizardWrap');
+  if(__mySites.length===0){
+    card.style.display='none';
+    wrap.style.display='block';
+    document.getElementById('backToSitesBtn').style.display='none';
+    return;
+  }
+  card.style.display='block';
+  document.getElementById('mySitesCount').textContent=__mySites.length+(__mySites.length===1?' site':' sites');
+  document.getElementById('mySitesGrid').innerHTML=__mySites.map(site=>`
+    <div class="my-site-card">
+      <div class="msc-top"><div class="msc-name">${site.bizName}</div><div class="badge-green">🟢 Live</div></div>
+      <div class="msc-url">${site.fullUrl}</div>
+      <div class="msc-meta">${site.industryLabel} · built ${site.createdAt}</div>
+      <div class="msc-actions">
+        <button class="msc-btn" onclick="viewSite('${site.id}')">👁 View</button>
+        <button class="msc-btn" onclick="editSite('${site.id}')">✎ Edit</button>
+        <button class="msc-btn" onclick="copySiteLink('${site.id}')">📋 Copy Link</button>
+        <button class="msc-btn danger" onclick="deleteSite('${site.id}')">🗑 Delete</button>
+      </div>
+    </div>`).join('');
+  // If nothing is being actively edited/viewed, show the list and hide the wizard
+  if(!wrap.dataset.forceOpen){
+    wrap.style.display='none';
+  }
+}
+
+function startNewSite(){
+  __editingSiteId=null;
+  document.getElementById('wbBizName').value='';
+  document.getElementById('wbIndustry').selectedIndex=0;
+  document.getElementById('wbDesc').value='';
+  document.getElementById('wbCity').value='';
+  document.getElementById('wbPhone').value='';
+  document.getElementById('wbSubdomain').value='';
+  document.getElementById('wbGoal').selectedIndex=0;
+  document.querySelectorAll('.style-card').forEach(c=>c.classList.remove('selected'));
+  const firstStyle=document.querySelector('.style-card');
+  if(firstStyle){firstStyle.classList.add('selected');wbSelectedStyle=firstStyle.dataset.style;}
+  document.getElementById('wbNameError').style.display='none';
+  document.getElementById('wbBizName').style.borderColor='';
+  const wrap=document.getElementById('wizardWrap');
+  wrap.dataset.forceOpen='1';
+  wrap.style.display='block';
+  document.getElementById('backToSitesBtn').style.display=__mySites.length>0?'inline-block':'none';
+  setWizStep(1);
+}
+
+function showMySites(){
+  const wrap=document.getElementById('wizardWrap');
+  delete wrap.dataset.forceOpen;
+  __editingSiteId=null;
+  refreshMySitesView();
+}
+
+function viewSite(id){
+  const site=__mySites.find(s=>s.id===id);
+  if(!site)return;
+  const wrap=document.getElementById('wizardWrap');
+  wrap.dataset.forceOpen='1';
+  wrap.style.display='block';
+  document.getElementById('backToSitesBtn').style.display='inline-block';
+  loadSiteIntoResultView(site);
+  setWizStep(4);
+}
+
+function editSite(id){
+  const site=__mySites.find(s=>s.id===id);
+  if(!site)return;
+  __editingSiteId=id;
+  document.getElementById('wbBizName').value=site.form.bizName;
+  document.getElementById('wbIndustry').value=site.form.industry;
+  document.getElementById('wbDesc').value=site.form.desc;
+  document.getElementById('wbCity').value=site.form.city;
+  document.getElementById('wbPhone').value=site.form.phone;
+  document.getElementById('wbSubdomain').value=site.subdomain;
+  document.getElementById('wbGoal').value=site.form.goal;
+  document.querySelectorAll('.style-card').forEach(c=>{
+    c.classList.toggle('selected',c.dataset.style===site.style);
+  });
+  wbSelectedStyle=site.style;
+  const wrap=document.getElementById('wizardWrap');
+  wrap.dataset.forceOpen='1';
+  wrap.style.display='block';
+  document.getElementById('backToSitesBtn').style.display='inline-block';
+  setWizStep(1);
+}
+
+function copySiteLink(id){
+  const site=__mySites.find(s=>s.id===id);
+  if(!site)return;
+  const url='https://'+site.fullUrl;
+  if(navigator.clipboard){navigator.clipboard.writeText(url).then(()=>alert('Link copied: '+url)).catch(()=>alert(url));}
+  else{alert(url);}
+}
+
+function deleteSite(id){
+  const site=__mySites.find(s=>s.id===id);
+  if(!site)return;
+  if(!confirm('Delete "'+site.bizName+'" ('+site.fullUrl+')? This cannot be undone.'))return;
+  __mySites=__mySites.filter(s=>s.id!==id);
+  if(__editingSiteId===id)__editingSiteId=null;
+  refreshMySitesView();
+}
+
+function loadSiteIntoResultView(site){
+  window.__sitePages=site.pages;
+  const tabsEl=document.getElementById('wbPageTabs');
+  tabsEl.innerHTML=Object.keys(site.pages).map((p,i)=>
+    `<div class="wb-pagetab${i===0?' active':''}" onclick="switchSitePage('${p}',this)">${p}</div>`
+  ).join('');
+  document.getElementById('resultFrame').innerHTML=site.pages.Home;
+  document.getElementById('publishedUrl').textContent=site.fullUrl;
+  document.getElementById('wbUrlBar').textContent=site.fullUrl;
+  window.__lastPublishedUrl='https://'+site.fullUrl;
+  document.getElementById('siteSummaryGrid').innerHTML=`
+    <div class="site-summary-card"><div class="ssc-icon">📄</div><div class="ssc-val">5</div><div class="ssc-label">Pages Generated</div></div>
+    <div class="site-summary-card"><div class="ssc-icon">🎨</div><div class="ssc-val">${site.styleName}</div><div class="ssc-label">Theme Applied</div></div>
+    <div class="site-summary-card"><div class="ssc-icon">📱</div><div class="ssc-val">100%</div><div class="ssc-label">Mobile Responsive</div></div>
+    <div class="site-summary-card"><div class="ssc-icon">⚡</div><div class="ssc-val">SEO Ready</div><div class="ssc-label">Optimized Tags</div></div>`;
+}
+
+function makeUniqueSubdomain(base,excludeId){
+  let candidate=base;
+  let n=2;
+  const taken=()=>__mySites.some(s=>s.subdomain===candidate && s.id!==excludeId);
+  while(taken()){
+    candidate=base+'-'+n;
+    n++;
+  }
+  return candidate;
+}
+
+function goToStyleStep(){
+  const nameInput=document.getElementById('wbBizName');
+  const name=nameInput.value.trim();
+  const errEl=document.getElementById('wbNameError');
+  if(!name){
+    nameInput.style.borderColor='var(--red)';
+    if(errEl) errEl.style.display='block';
+    nameInput.scrollIntoView({block:'center',behavior:'smooth'});
+    nameInput.focus();
+    return;
+  }
+  nameInput.style.borderColor='';
+  if(errEl) errEl.style.display='none';
+  setWizStep(2);
+}
+
+function backToDetailsStep(){ setWizStep(1); }
+
+function setWizStep(step){
+  document.querySelectorAll('.wiz-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('wizPanel'+step).classList.add('active');
+  document.querySelectorAll('.wiz-step').forEach(s=>{
+    const n=parseInt(s.dataset.step);
+    s.classList.remove('active','done');
+    if(n<step)s.classList.add('done');
+    else if(n===step)s.classList.add('active');
+  });
+}
+
+function selectStyle(el){
+  document.querySelectorAll('.style-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  wbSelectedStyle=el.dataset.style;
+}
+
+function startGeneration(){
+  setWizStep(3);
+  const bizName=document.getElementById('wbBizName').value.trim()||'Your Business';
+  const steps=[
+    '🔍 Analyzing your business details...',
+    '🎨 Applying '+document.querySelector('.style-card.selected .style-name').textContent+' theme...',
+    '✍️ Writing homepage copy with AI...',
+    '🖼️ Selecting layout sections...',
+    '📱 Optimizing for mobile...',
+    '🌐 Registering subdomain...',
+    '🚀 Publishing your site...'
+  ];
+  const log=document.getElementById('genLog');
+  log.innerHTML='';
+  document.getElementById('genHeadline').textContent='Generating "'+bizName+'"...';
+
+  steps.forEach((s,i)=>{
+    const item=document.createElement('div');
+    item.className='gen-log-item';
+    item.style.animationDelay=(i*0.12)+'s';
+    item.innerHTML=`<div class="gen-check"></div><span>${s}</span>`;
+    log.appendChild(item);
+    setTimeout(()=>{
+      item.classList.add('done');
+      item.querySelector('.gen-check').innerHTML='✓';
+    }, 450*(i+1));
+  });
+
+  setTimeout(()=>{
+    renderGeneratedSite();
+    setWizStep(4);
+  }, 450*(steps.length+1));
+}
+
+function renderGeneratedSite(){
+  const name=document.getElementById('wbBizName').value.trim()||'Your Business';
+  const industry=document.getElementById('wbIndustry').value;
+  const desc=document.getElementById('wbDesc').value.trim()||'We deliver excellent service to our customers every day.';
+  const city=document.getElementById('wbCity').value.trim()||'India';
+  const phone=document.getElementById('wbPhone').value.trim()||'+91 98765 43210';
+  let sub=document.getElementById('wbSubdomain').value.trim();
+  if(!sub) sub=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')||'mybusiness';
+  const uniqueSub=makeUniqueSubdomain(sub,__editingSiteId);
+  if(uniqueSub!==sub){
+    sub=uniqueSub;
+    document.getElementById('wbSubdomain').value=sub;
+  }
+  const fullUrl=sub+'.adwikflow.io';
+  const s=wbStyles[wbSelectedStyle];
+  const dark=['luxury','creative'].includes(wbSelectedStyle);
+  const onAccent=wbSelectedStyle==='minimal'?'#1A1A1A':'#fff';
+
+  const industryMeta={
+    furniture:{tag:'Premium Furniture & Interior Design',cta:'Get a Free Quote',features:['Custom Designs','15+ Years Experience','Free Home Consultation','Premium Materials'],
+      services:[['Custom Furniture Design','Bespoke pieces tailored to your space, crafted by master artisans using premium hardwood and finishes.'],['Interior Consultation','Our designers visit your home or office to plan layouts, color palettes, and furniture placement.'],['Modular Solutions','Space-saving wardrobes, kitchens, and storage systems designed for modern Indian homes.'],['Renovation & Refurbishing','Bring old furniture back to life with expert restoration and reupholstery services.']],
+      gallery:['Living Room Sets','Modular Kitchens','Office Interiors','Custom Wardrobes','Dining Collections','Outdoor Furniture']},
+    restaurant:{tag:'Authentic Dining Experience',cta:'Reserve a Table',features:['Fresh Ingredients','Cozy Ambience','Home Delivery','Daily Specials'],
+      services:[['Dine-In Experience','A warm, inviting atmosphere perfect for family meals, celebrations, and gatherings with friends.'],['Home Delivery','Fresh, hot meals delivered to your doorstep within 30 minutes across the city.'],['Catering Services','Full-service catering for weddings, corporate events, and private parties of any size.'],['Private Events','Book our space for birthdays, anniversaries, and special occasions with custom menus.']],
+      gallery:['Signature Dishes','Restaurant Interior','Chef Specials','Private Dining','Dessert Menu','Beverage Selection']},
+    salon:{tag:'Beauty & Wellness Studio',cta:'Book Appointment',features:['Expert Stylists','Premium Products','Relaxing Ambience','Flexible Timing'],
+      services:[['Hair Styling & Coloring','Precision cuts, global coloring techniques, and treatments using internationally certified products.'],['Skin & Facial Care','Customized facials and skincare treatments designed for every skin type and concern.'],['Bridal & Party Makeup','Professional makeup artistry for weddings, parties, and special occasions.'],['Spa & Massage Therapy','Relaxing therapeutic treatments to rejuvenate your body and mind.']],
+      gallery:['Salon Interior','Hair Transformations','Bridal Looks','Spa Treatments','Nail Art','Makeup Studio']},
+    realestate:{tag:'Find Your Dream Property',cta:'Schedule a Visit',features:['Verified Listings','Legal Assistance','Best Market Rates','End-to-End Support'],
+      services:[['Property Buying & Selling','End-to-end assistance finding or selling residential and commercial properties at the best rates.'],['Legal & Documentation','Complete support with registry, agreements, and legal verification for a smooth transaction.'],['Rental Management','Find verified tenants or rental properties with hassle-free management services.'],['Investment Advisory','Expert guidance on property investment opportunities with strong appreciation potential.']],
+      gallery:['Featured Properties','Residential Projects','Commercial Spaces','Plot Listings','Site Visits','Completed Deals']},
+    fitness:{tag:'Transform Your Body & Mind',cta:'Start Free Trial',features:['Certified Trainers','Modern Equipment','Flexible Plans','Nutrition Guidance'],
+      services:[['Personal Training','One-on-one coaching with certified trainers to help you reach your specific fitness goals.'],['Group Classes','High-energy group sessions including HIIT, Zumba, yoga, and strength training.'],['Nutrition Planning','Customized diet plans designed by certified nutritionists to complement your workouts.'],['Membership Plans','Flexible monthly and annual plans with access to all equipment and classes.']],
+      gallery:['Gym Floor','Group Classes','Training Sessions','Equipment','Transformation Stories','Events']},
+    clinic:{tag:'Trusted Healthcare Services',cta:'Book Consultation',features:['Experienced Doctors','Modern Facility','Quick Appointments','Patient-First Care'],
+      services:[['General Consultation','Comprehensive health checkups and consultations with experienced physicians.'],['Specialist Care','Access to specialists across multiple departments under one roof.'],['Diagnostic Services','In-house lab testing and diagnostic imaging for fast, accurate results.'],['Preventive Health Checkups','Customized health packages designed to catch issues before they become serious.']],
+      gallery:['Clinic Facility','Consultation Rooms','Medical Team','Diagnostic Lab','Patient Care','Equipment']},
+    agency:{tag:'Digital Growth Partner',cta:'Get a Free Audit',features:['Proven Results','Custom Strategy','Transparent Reporting','Dedicated Team'],
+      services:[['Website Design & Development','Modern, conversion-focused websites built to represent your brand and drive results.'],['SEO & Digital Marketing','Data-driven strategies to improve search rankings and grow organic traffic.'],['Social Media Management','Consistent, engaging content that builds your brand presence across platforms.'],['Paid Advertising','ROI-focused ad campaigns across Google, Facebook, and Instagram.']],
+      gallery:['Client Projects','Website Portfolio','Campaign Results','Brand Designs','Case Studies','Team at Work']},
+    retail:{tag:'Quality Products, Trusted Service',cta:'Visit Our Store',features:['Wide Selection','Best Prices','Quality Assured','Friendly Service'],
+      services:[['In-Store Shopping','Browse our full collection in person with expert staff ready to assist you.'],['Bulk & Wholesale Orders','Special pricing and dedicated support for bulk purchases and business orders.'],['Custom Orders','Can\'t find what you need? We source and special-order products for our customers.'],['After-Sales Support','Dedicated support for exchanges, repairs, and product guidance after your purchase.']],
+      gallery:['Store Front','Product Range','New Arrivals','Customer Favorites','Seasonal Collection','Store Interior']},
+    education:{tag:'Learn. Grow. Succeed.',cta:'Enroll Now',features:['Expert Faculty','Proven Curriculum','Small Batches','Placement Support'],
+      services:[['Classroom Coaching','Structured, in-depth classroom programs led by experienced subject experts.'],['Online Live Classes','Interactive live sessions accessible from anywhere with recorded backups.'],['Doubt-Solving Sessions','Dedicated one-on-one sessions to clear concepts and strengthen weak areas.'],['Mock Tests & Assessments','Regular practice tests with detailed performance analysis and feedback.']],
+      gallery:['Classroom Sessions','Faculty Team','Student Achievements','Study Material','Campus Facility','Events']},
+    other:{tag:'Excellence in Everything We Do',cta:'Get In Touch',features:['Trusted Service','Quality First','Customer Focused','Reliable Support'],
+      services:[['Core Service One','A detailed description of your primary service offering and the value it brings to customers.'],['Core Service Two','A second key offering tailored to meet a different aspect of your customers\' needs.'],['Consultation & Planning','We work closely with you to understand requirements before delivering a tailored solution.'],['Ongoing Support','Dedicated post-service support to ensure long-term customer satisfaction.']],
+      gallery:['Our Work','Behind the Scenes','Team','Process','Results','Happy Customers']}
+  };
+  const meta=industryMeta[industry]||industryMeta.other;
+  const firstName=name.split(' ')[0];
+
+  // ── Shared nav header for every page ──
+  const navHtml=(activePage)=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:${dark?s.card:'#fff'};border-bottom:1px solid rgba(0,0,0,.07);position:sticky;top:0;z-index:5">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:${s.accent}">${name}</div>
+      <div style="display:flex;gap:1.1rem;font-size:.74rem;font-weight:600;color:${s.muted}">
+        ${['Home','About','Services','Gallery','Contact'].map(p=>`<span style="color:${p===activePage?s.accent:s.muted};cursor:pointer">${p}</span>`).join('')}
+      </div>
+    </div>`;
+
+  const footerHtml=`
+    <div style="padding:2rem 1.5rem;text-align:center;background:${s.heroGrad};color:${onAccent}">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;margin-bottom:.5rem">${name}</div>
+      <div style="font-size:.78rem;opacity:.85;margin-bottom:1rem">📍 ${city} &nbsp;·&nbsp; 📞 ${phone}</div>
+      <button style="background:${onAccent};color:${wbSelectedStyle==='minimal'?'#fff':s.accent};border:none;padding:.65rem 1.5rem;border-radius:8px;font-weight:700;font-size:.82rem;cursor:pointer">${meta.cta} →</button>
+    </div>
+    <div style="padding:1rem;text-align:center;font-size:.7rem;color:${s.muted};background:${s.card};border-top:1px solid rgba(0,0,0,.08)">© 2026 ${name}. All rights reserved. Built with AdwikFlow AI.</div>`;
+
+  const wrap=(inner)=>`<div style="font-family:${s.font};background:${s.bg};color:${s.text};min-height:100%">${inner}</div>`;
+
+  // ── PAGE: HOME ──
+  const pageHome=wrap(`
+    ${navHtml('Home')}
+    <div style="background:${s.heroGrad};padding:3.5rem 1.5rem;text-align:center;color:${onAccent}">
+      <div style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;opacity:.8;margin-bottom:.7rem">${meta.tag}</div>
+      <div style="font-size:1.9rem;font-weight:800;margin-bottom:.7rem;line-height:1.15">${name}</div>
+      <div style="font-size:.85rem;opacity:.85;max-width:400px;margin:0 auto 1.3rem;line-height:1.65">${desc}</div>
+      <button style="background:${onAccent};color:${wbSelectedStyle==='minimal'?'#fff':s.accent};border:none;padding:.75rem 1.7rem;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer">${meta.cta} →</button>
+    </div>
+    <div style="padding:2.2rem 1.5rem;background:${s.card}">
+      <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:${s.accent};font-weight:700;margin-bottom:1rem;text-align:center">Why Choose ${firstName}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+        ${meta.features.map(f=>`<div style="background:${s.bg};border-radius:10px;padding:1rem .8rem;text-align:center;font-size:.78rem;font-weight:600;border:1px solid rgba(0,0,0,.06)">✓ ${f}</div>`).join('')}
+      </div>
+    </div>
+    <div style="padding:2.2rem 1.5rem">
+      <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:${s.accent};font-weight:700;margin-bottom:1rem;text-align:center">Our Services</div>
+      <div style="display:flex;flex-direction:column;gap:.7rem">
+        ${meta.services.slice(0,2).map(([t,d])=>`<div style="background:${s.card};border-radius:10px;padding:1rem;border:1px solid rgba(0,0,0,.06)"><div style="font-weight:700;font-size:.86rem;margin-bottom:.3rem">${t}</div><div style="font-size:.78rem;color:${s.muted};line-height:1.6">${d}</div></div>`).join('')}
+      </div>
+    </div>
+    <div style="padding:2.2rem 1.5rem;background:${s.card};text-align:center">
+      <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:${s.accent};font-weight:700;margin-bottom:.9rem">What Our Customers Say</div>
+      <div style="background:${s.bg};border-radius:10px;padding:1.1rem;max-width:400px;margin:0 auto;font-size:.8rem;font-style:italic;color:${s.muted}">"Excellent experience from start to finish. Highly recommend ${name} to anyone in ${city}!" — Happy Customer ⭐⭐⭐⭐⭐</div>
+    </div>
+    ${footerHtml}`);
+
+  // ── PAGE: ABOUT ──
+  const pageAbout=wrap(`
+    ${navHtml('About')}
+    <div style="background:${s.heroGrad};padding:2.6rem 1.5rem;text-align:center;color:${onAccent}">
+      <div style="font-size:1.4rem;font-weight:800">About ${name}</div>
+      <div style="font-size:.8rem;opacity:.85;margin-top:.4rem">Our story, our mission, our people</div>
+    </div>
+    <div style="padding:2.2rem 1.5rem">
+      <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:${s.accent};font-weight:700;margin-bottom:.7rem">Our Story</div>
+      <div style="font-size:.84rem;line-height:1.8;color:${s.muted}">${desc} What started as a small venture has grown into a name trusted by countless customers across ${city}. We believe in doing things right — from the first consultation to long after delivery, our commitment to quality never wavers.</div>
+    </div>
+    <div style="padding:2.2rem 1.5rem;background:${s.card}">
+      <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:${s.accent};font-weight:700;margin-bottom:1rem;text-align:center">Our Mission & Values</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+        <div style="background:${s.bg};border-radius:10px;padding:1rem;text-align:center"><div style="font-size:1.3rem;margin-bottom:.4rem">🎯</div><div style="font-weight:700;font-size:.82rem;margin-bottom:.3rem">Customer First</div><div style="font-size:.74rem;color:${s.muted}">Every decision starts with what's best for you</div></div>
+        <div style="background:${s.bg};border-radius:10px;padding:1rem;text-align:center"><div style="font-size:1.3rem;margin-bottom:.4rem">⭐</div><div style="font-weight:700;font-size:.82rem;margin-bottom:.3rem">Quality Always</div><div style="font-size:.74rem;color:${s.muted}">No shortcuts, ever — only our best work</div></div>
+        <div style="background:${s.bg};border-radius:10px;padding:1rem;text-align:center"><div style="font-size:1.3rem;margin-bottom:.4rem">🤝</div><div style="font-weight:700;font-size:.82rem;margin-bottom:.3rem">Integrity</div><div style="font-size:.74rem;color:${s.muted}">Honest pricing, honest advice, every time</div></div>
+        <div style="background:${s.bg};border-radius:10px;padding:1rem;text-align:center"><div style="font-size:1.3rem;margin-bottom:.4rem">🚀</div><div style="font-weight:700;font-size:.82rem;margin-bottom:.3rem">Growth</div><div style="font-size:.74rem;color:${s.muted}">Constantly improving to serve you better</div></div>
+      </div>
+    </div>
+    <div style="padding:2.2rem 1.5rem;text-align:center">
+      <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:${s.accent};font-weight:700;margin-bottom:1rem">By The Numbers</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem">
+        <div><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:${s.accent}">15+</div><div style="font-size:.7rem;color:${s.muted}">Years Experience</div></div>
+        <div><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:${s.accent}">2,000+</div><div style="font-size:.7rem;color:${s.muted}">Happy Customers</div></div>
+        <div><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:${s.accent}">4.8★</div><div style="font-size:.7rem;color:${s.muted}">Average Rating</div></div>
+      </div>
+    </div>
+    ${footerHtml}`);
+
+  // ── PAGE: SERVICES ──
+  const pageServices=wrap(`
+    ${navHtml('Services')}
+    <div style="background:${s.heroGrad};padding:2.6rem 1.5rem;text-align:center;color:${onAccent}">
+      <div style="font-size:1.4rem;font-weight:800">Our Services</div>
+      <div style="font-size:.8rem;opacity:.85;margin-top:.4rem">Everything we offer, built around your needs</div>
+    </div>
+    <div style="padding:2.2rem 1.5rem;display:flex;flex-direction:column;gap:1rem">
+      ${meta.services.map(([t,d],i)=>`
+        <div style="background:${s.card};border-radius:12px;padding:1.2rem;border:1px solid rgba(0,0,0,.06);display:flex;gap:1rem;align-items:flex-start">
+          <div style="width:38px;height:38px;border-radius:10px;background:${s.accent};color:${dark?'#000':'#fff'};display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0">${i+1}</div>
+          <div><div style="font-weight:700;font-size:.92rem;margin-bottom:.35rem">${t}</div><div style="font-size:.8rem;color:${s.muted};line-height:1.7">${d}</div></div>
+        </div>`).join('')}
+    </div>
+    <div style="padding:2.2rem 1.5rem;background:${s.card};text-align:center">
+      <div style="font-weight:800;font-size:1rem;margin-bottom:.5rem">Not sure what you need?</div>
+      <div style="font-size:.8rem;color:${s.muted};margin-bottom:1rem">Talk to our team — we'll recommend the right service for you, free of charge.</div>
+      <button style="background:${s.accent};color:${dark?'#000':'#fff'};border:none;padding:.65rem 1.5rem;border-radius:8px;font-weight:700;font-size:.82rem;cursor:pointer">${meta.cta} →</button>
+    </div>
+    ${footerHtml}`);
+
+  // ── PAGE: GALLERY ──
+  const galColors=[s.accent,'#FF6B6B','#5B5FFF','#00C2A8','#FFB930','#A259FF'];
+  const pageGallery=wrap(`
+    ${navHtml('Gallery')}
+    <div style="background:${s.heroGrad};padding:2.6rem 1.5rem;text-align:center;color:${onAccent}">
+      <div style="font-size:1.4rem;font-weight:800">Gallery</div>
+      <div style="font-size:.8rem;opacity:.85;margin-top:.4rem">A look at our work and our space</div>
+    </div>
+    <div style="padding:2.2rem 1.5rem">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem">
+        ${meta.gallery.map((g,i)=>`
+          <div style="border-radius:10px;overflow:hidden">
+            <div style="height:90px;background:linear-gradient(135deg,${galColors[i%galColors.length]}99,${galColors[(i+2)%galColors.length]}66);display:flex;align-items:center;justify-content:center;font-size:1.4rem">🖼️</div>
+            <div style="padding:.5rem .3rem;font-size:.74rem;font-weight:600;color:${s.text};background:${s.card}">${g}</div>
+          </div>`).join('')}
+      </div>
+    </div>
+    ${footerHtml}`);
+
+  // ── PAGE: CONTACT ──
+  const pageContact=wrap(`
+    ${navHtml('Contact')}
+    <div style="background:${s.heroGrad};padding:2.6rem 1.5rem;text-align:center;color:${onAccent}">
+      <div style="font-size:1.4rem;font-weight:800">Get In Touch</div>
+      <div style="font-size:.8rem;opacity:.85;margin-top:.4rem">We'd love to hear from you</div>
+    </div>
+    <div style="padding:2.2rem 1.5rem">
+      <div style="display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.6rem">
+        <div style="background:${s.card};border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.8rem;border:1px solid rgba(0,0,0,.06)"><div style="font-size:1.2rem">📍</div><div><div style="font-weight:700;font-size:.82rem">Location</div><div style="font-size:.78rem;color:${s.muted}">${city}</div></div></div>
+        <div style="background:${s.card};border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.8rem;border:1px solid rgba(0,0,0,.06)"><div style="font-size:1.2rem">📞</div><div><div style="font-weight:700;font-size:.82rem">Phone / WhatsApp</div><div style="font-size:.78rem;color:${s.muted}">${phone}</div></div></div>
+        <div style="background:${s.card};border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.8rem;border:1px solid rgba(0,0,0,.06)"><div style="font-size:1.2rem">⏰</div><div><div style="font-weight:700;font-size:.82rem">Working Hours</div><div style="font-size:.78rem;color:${s.muted}">Mon – Sat, 10:00 AM – 7:00 PM</div></div></div>
+      </div>
+      <div style="background:${s.card};border-radius:12px;padding:1.3rem;border:1px solid rgba(0,0,0,.06)">
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:.9rem">Send us a message</div>
+        <div style="display:flex;flex-direction:column;gap:.6rem">
+          <input style="padding:.6rem .8rem;border:1px solid rgba(0,0,0,.12);border-radius:7px;font-size:.78rem;background:${s.bg};color:${s.text}" placeholder="Your name">
+          <input style="padding:.6rem .8rem;border:1px solid rgba(0,0,0,.12);border-radius:7px;font-size:.78rem;background:${s.bg};color:${s.text}" placeholder="Phone or email">
+          <textarea style="padding:.6rem .8rem;border:1px solid rgba(0,0,0,.12);border-radius:7px;font-size:.78rem;background:${s.bg};color:${s.text};resize:none" rows="3" placeholder="How can we help?"></textarea>
+          <button style="background:${s.accent};color:${dark?'#000':'#fff'};border:none;padding:.65rem;border-radius:7px;font-weight:700;font-size:.82rem;cursor:pointer">Send Message →</button>
+        </div>
+      </div>
+    </div>
+    ${footerHtml}`);
+
+  const pages={Home:pageHome,About:pageAbout,Services:pageServices,Gallery:pageGallery,Contact:pageContact};
+  const styleName=document.querySelector('.style-card.selected .style-name').textContent;
+  const industryLabel=document.getElementById('wbIndustry').selectedOptions[0].textContent;
+
+  // ── Save/update this site in "My Websites" ──
+  const siteRecord={
+    id: __editingSiteId || ('site_'+Date.now()+'_'+Math.random().toString(36).slice(2,7)),
+    bizName:name, subdomain:sub, fullUrl, style:wbSelectedStyle, styleName, industryLabel,
+    pages,
+    form:{bizName:name,industry:document.getElementById('wbIndustry').value,desc,city,phone,goal:document.getElementById('wbGoal').value},
+    createdAt: __editingSiteId ? (__mySites.find(s=>s.id===__editingSiteId)||{}).createdAt || new Date().toLocaleDateString() : new Date().toLocaleDateString()
+  };
+  if(__editingSiteId){
+    const idx=__mySites.findIndex(s=>s.id===__editingSiteId);
+    if(idx>-1) __mySites[idx]=siteRecord; else __mySites.push(siteRecord);
+  } else {
+    __mySites.push(siteRecord);
+  }
+  __editingSiteId=siteRecord.id;
+
+  loadSiteIntoResultView(siteRecord);
+  document.getElementById('backToSitesBtn').style.display='inline-block';
+}
+
+function switchSitePage(pageName, tabEl){
+  if(!window.__sitePages || !window.__sitePages[pageName]) return;
+  document.querySelectorAll('.wb-pagetab').forEach(t=>t.classList.remove('active'));
+  tabEl.classList.add('active');
+  document.getElementById('resultFrame').innerHTML=window.__sitePages[pageName];
+  document.getElementById('resultFrame').scrollTop=0;
+}
+
+function copyUrl(){
+  const url=window.__lastPublishedUrl||'https://yourbusiness.adwikflow.io';
+  if(navigator.clipboard){navigator.clipboard.writeText(url).then(()=>alert('Link copied: '+url)).catch(()=>alert(url));}
+  else{alert(url);}
+}
+
+function openFullPreview(){
+  const win=window.open('','_blank');
+  if(win){
+    win.document.write('<html><head><title>'+document.getElementById('publishedUrl').textContent+'</title></head><body style="margin:0">'+document.getElementById('resultFrame').innerHTML+'</body></html>');
+    win.document.close();
+  } else {
+    alert('Pop-up blocked. Your site is live at: '+(window.__lastPublishedUrl||''));
+  }
+}
+
+function resetWizard(){
+  startNewSite();
+}
+
+// ══ SCROLL UTIL ══
+function scrollToSection(sel){
+  const el=document.querySelector(sel);
+  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ══ SCROLL REVEAL ══
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)';io.unobserve(x.target)}}),{threshold:.1});
+document.querySelectorAll('.service-item,.stat,.ov-card').forEach((el,i)=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition=`opacity .5s ${i*.07}s,transform .5s ${i*.07}s`;
+  io.observe(el);
+});
+</script>
+</body>
+</html>
