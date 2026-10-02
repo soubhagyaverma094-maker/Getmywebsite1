@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getmywebsite — Signature Websites &amp; AI</title>
+    <meta
+      name="description"
+      content="getmywebsite builds signature websites, AI automations, agentic AI systems, and AI videos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #07060b;
+        --fg: #f8f5ff;
+        --muted: #b7adc8;
+        --primary: #7c3aed;
+        --border: #2a2438;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        min-height: 100dvh;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      header {
+        position: absolute;
+        inset: 0 0 auto 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 40px;
+      }
+      .brand { font-size: 14px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
+      nav { display: flex; align-items: center; gap: 24px; font-size: 14px; color: rgba(255,255,255,.7); }
+      nav a:hover { color: #fff; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        border-radius: 999px;
+        padding: 8px 16px;
+        font-weight: 500;
+        cursor: pointer;
+        border: 0;
+        font: inherit;
+      }
+      .btn-primary { background: var(--primary); color: #fff; }
+      .btn-primary:hover { opacity: .9; }
+      .hero {
+        position: relative;
+        min-height: 100dvh;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,58,237,.22), transparent),
+          radial-gradient(ellipse 60% 50% at 80% 110%, rgba(236,72,153,.14), transparent),
+          #0c0a0f;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 96px 24px 64px;
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 7vw, 5rem);
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+      .kicker {
+        font-size: .7rem;
+        font-weight: 500;
+        letter-spacing: .35em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.55);
+      }
+      .hero p { margin-top: 16px; max-width: 36rem; color: rgba(255,255,255,.7); line-height: 1.625; }
+      section { padding: 96px 40px; }
+      .wrap { max-width: 72rem; margin: 0 auto; }
+      h2 { margin-top: 16px; font-size: clamp(1.875rem, 4vw, 3rem); font-weight: 600; letter-spacing: -0.025em; }
+      .muted { color: var(--muted); line-height: 1.625; }
+      .steps, .reasons, .services { display: grid; gap: 40px; margin-top: 64px; }
+      .steps { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+      .n { font-size: 14px; font-weight: 500; letter-spacing: .2em; color: rgba(196,181,253,.8); }
+      .card {
+        border: 1px solid rgba(255,255,255,.1);
+        background: rgba(0,0,0,.35);
+        border-radius: 16px;
+        padding: 24px;
+      }
+      .reasons, .services { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+      .why { position: relative; background: #000; overflow: hidden; }
+      #contact { text-align: center; }
+      form { max-width: 24rem; margin: 0 auto; text-align: left; }
+      label { display: block; font-size: 14px; font-weight: 500; }
+      .field, textarea {
+        width: 100%;
+        margin: 8px 0 16px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--fg);
+        font: inherit;
+      }
+      .field {
+        height: 44px;
+        border-radius: 999px;
+        padding: 0 16px;
+        outline: none;
+      }
+      textarea { border-radius: 8px; padding: 8px; resize: none; outline: none; }
+      .field:focus, textarea:focus { box-shadow: 0 0 0 2px #a78bfa; }
+      form .btn { width: 100%; margin-top: 8px; background: #8b5cf6; }
+      form .btn:hover { background: #7c3aed; }
+      .pill {
+        display: inline-block;
+        border-radius: 999px;
+        background: rgba(139,92,246,.2);
+        padding: 4px 12px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #c4b5fd;
+      }
+      footer {
+        border-top: 1px solid rgba(255,255,255,.1);
+        padding: 48px 40px;
+      }
+      .foot {
+        display: grid;
+        gap: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+      footer ul { list-style: none; margin-top: 16px; }
+      footer li { margin-top: 8px; }
+      footer a { color: rgba(255,255,255,.8); font-size: 14px; }
+      footer a:hover { color: #fff; }
+      .download {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 50;
+        background: #fff;
+        color: #07060b;
+        box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      }
+      @media (max-width: 700px) {
+        header, section, footer { padding-left: 24px; padding-right: 24px; }
+        nav a:not(.btn) { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="download btn" href="getmywebsite.html" download="getmywebsite.html">Download HTML</a>
+    <header>
+      <a class="brand" href="#top">getmywebsite</a>
+      <nav>
+        <a href="#how-it-works">How it works</a>
+        <a href="#works">Services</a>
+        <a href="#why">Why</a>
+        <a class="btn btn-primary" href="#contact">Start a project</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="kicker">Studio</p>
+          <h1 id="hero-title">getmywebsite</h1>
+          <p>Signature websites, AI automations, agentic systems, and AI video — built to convert.</p>
+        </div>
+      </section>
+
+      <section id="how-it-works">
+        <div class="wrap">
+          <p class="kicker">Process</p>
+          <h2>How it works</h2>
+          <p class="muted" style="margin-top:12px;max-width:36rem;">Four moves from first call to a site, agents, and video that keep working after we ship.</p>
+          <ol class="steps">
+            <li><p class="n">01</p><h3 style="margin:12px 0 8px;font-size:20px;">Brief</h3><p class="muted" style="font-size:14px;">Tell us the outcome. We map the site, the agents, and the media that get you there.</p></li>
+            <li><p class="n">02</p><h3 style="margin:12px 0 8px;font-size:20px;">Build</h3><p class="muted" style="font-size:14px;">Design, motion, and systems ship in one thread — not a chain of handoffs.</p></li>
+            <li><p class="n">03</p><h3 style="margin:12px 0 8px;font-size:20px;">Launch</h3><p class="muted" style="font-size:14px;">We put it live, wire tracking, and leave you with a stack you can actually run.</p></li>
+            <li><p class="n">04</p><h3 style="margin:12px 0 8px;font-size:20px;">Scale</h3><p class="muted" style="font-size:14px;">Automations and agents keep working after launch so growth does not wait on headcount.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="works">
+        <div class="wrap">
+          <p class="kicker">Services</p>
+          <h2>What we ship</h2>
+          <div class="services">
+            <article class="card"><h3>Signature Website</h3><p class="muted" style="margin-top:8px;font-size:14px;">Modern, fast, fully responsive sites built to get you noticed and turn visitors into customers.</p></article>
+            <article class="card"><h3>AI Automations</h3><p class="muted" style="margin-top:8px;font-size:14px;">WhatsApp, chatbots, voice, email, and workflows that run without waiting on a human.</p></article>
+            <article class="card"><h3>Agentic AI</h3><p class="muted" style="margin-top:8px;font-size:14px;">Agents that understand the goal, plan the steps, and take action across your tools.</p></article>
+            <article class="card"><h3>AI Videos</h3><p class="muted" style="margin-top:8px;font-size:14px;">Scripts to finished films in minutes — characters, voiceovers, and brand styles, no crew.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="why" id="why">
+        <div class="wrap">
+          <p class="kicker">Why</p>
+          <h2>Why getmywebsite</h2>
+          <p class="muted" style="margin-top:16px;max-width:36rem;">Most studios ship a site. We ship the site, the agents behind it, and the video that makes it move.</p>
+          <ul class="reasons">
+            <li class="card"><h3>Built as a system</h3><p class="muted" style="margin-top:8px;font-size:14px;">Site, agents, and video share one brief. Nothing is bolted on after the fact.</p></li>
+            <li class="card"><h3>Ships at campaign speed</h3><p class="muted" style="margin-top:8px;font-size:14px;">We design, automate, and launch in one thread so you are not waiting on a stack of vendors.</p></li>
+            <li class="card"><h3>Runs after we leave</h3><p class="muted" style="margin-top:8px;font-size:14px;">Guardrails, tracking, and handoff so the work keeps converting without a retainer tax.</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact">
+        <p class="pill">Contact Us</p>
+        <h2 style="margin-top:16px;">Let's Get In Touch.</h2>
+        <p class="muted" style="margin:16px auto 40px;max-width:32rem;">
+          Or just reach out manually to us at
+          <a href="/cdn-cgi/l/email-protection#6e090b1a0317190b0c1d071a0b5f5c5f2e09030f0702400d0103" style="color:#c4b5fd;"><span class="__cf_email__" data-cfemail="0b6c6e7f66727c6e6978627f6e3a393a4b6c666a626725686466">[email&#160;protected]</span></a>
+        </p>
+        <form id="wa-form">
+          <label for="name">Full Name</label>
+          <input class="field" id="name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required />
+          <label for="email">Email Address</label>
+          <input class="field" id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+          <button class="btn" type="submit">Send on WhatsApp</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <p class="brand">getmywebsite</p>
+          <p class="muted" style="margin-top:12px;font-size:14px;max-width:16rem;">Signature websites, AI automations, agentic systems, and AI video.</p>
+        </div>
+        <div>
+          <p class="kicker">Call</p>
+          <ul>
+            <li><a href="tel:+918359922242">+91 83599 22242</a></li>
+            <li><a href="tel:+917224074444">+91 72240 74444</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="kicker">Email</p>
+          <ul>
+            <li><a href="/cdn-cgi/l/email-protection#95f2f0e1f8ece2f0f7e6fce1f0a4a7a4d5f2f8f4fcf9bbf6faf8"><span class="__cf_email__" data-cfemail="e98e8c9d84909e8c8b9a809d8cd8dbd8a98e84888085c78a8684">[email&#160;protected]</span></a></li>
+            <li><a href="/cdn-cgi/l/email-protection#afdcc0dacdc7cec8d6ced9caddc2ce9f969befc8c2cec6c381ccc0c2"><span class="__cf_email__" data-cfemail="8efde1fbece6efe9f7eff8ebfce3efbeb7bacee9e3efe7e2a0ede1e3">[email&#160;protected]</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="kicker">Instagram</p>
+          <ul>
+            <li><a href="https://www.instagram.com/getmywebsite.co.in" target="_blank" rel="noreferrer">@getmywebsite.co.in</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+      document.getElementById("wa-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var data = new FormData(event.currentTarget);
+        var text = [
+          "New website enquiry",
+          "Name: " + String(data.get("name") || "").trim(),
+          "Email: " + String(data.get("email") || "").trim(),
+          "",
+          String(data.get("message") || "").trim(),
+        ].join("\n");
+        window.open(
+          "https://wa.me/918359922242?text=" + encodeURIComponent(text),
+          "_blank",
+          "noopener,noreferrer"
+        );
+      });
+    </script>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"3c7f84125ad544deae046fd599aeda84","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
