@@ -1,0 +1,22 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Content-Disposition", "value": "inline" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/services/signature-website.html", "destination": "/signature-website/", "permanent": true },
+    { "source": "/services/ai-automations.html", "destination": "/ai-automations/", "permanent": true },
+    { "source": "/services/agentic-ai.html", "destination": "/agentic-ai/", "permanent": true },
+    { "source": "/services/ai-videos.html", "destination": "/ai-videos/", "permanent": true },
+    { "source": "/services/signature-website", "destination": "/signature-website/", "permanent": true },
+    { "source": "/services/ai-automations", "destination": "/ai-automations/", "permanent": true },
+    { "source": "/services/agentic-ai", "destination": "/agentic-ai/", "permanent": true },
+    { "source": "/services/ai-videos", "destination": "/ai-videos/", "permanent": true }
+  ]
+}
