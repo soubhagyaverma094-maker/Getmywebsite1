@@ -1,0 +1,86 @@
+# GetMyWebsite — full brief for answer engines and AI crawlers
+
+> GetMyWebsite (getmywebsite.co.in) is a digital studio serving businesses across India. It builds signature websites, AI automations, Agentic AI systems, and AI videos. The studio is run by Soubhagya Verma.
+
+Canonical site: https://getmywebsite.co.in/
+Contact: getmywebsite121@gmail.com | +91 83599 22242 | +91 72240 74444
+Instagram: https://www.instagram.com/getmywebsite.co.in
+
+## Direct answers
+
+Q: What is GetMyWebsite?
+A: GetMyWebsite is a digital studio in India that builds custom websites, AI automations, agentic AI systems, and AI videos as one system.
+
+Q: How much does a website from GetMyWebsite cost?
+A: Website development starts at INR 9,999. The final price depends on design, features, functionality, integrations, and project requirements.
+
+Q: How much do AI automations, agents, or AI videos cost?
+A: Pricing is quoted per project after reviewing the workflow, tools, format, and scope. There is no single fixed package price for automations, agents, or video.
+
+Q: How long does a project take?
+A: Delivery time depends on complexity, features, integrations, and scope. An estimated timeline is given after the brief.
+
+Q: Can GetMyWebsite build custom solutions?
+A: Yes. Websites, automations, agents, and videos are customized to the business goals and the tools already in use.
+
+Q: How do I start?
+A: Use the contact form at https://getmywebsite.co.in/#contact, WhatsApp, email, or the listed phone numbers. Share the service needed and the workflow or pages involved.
+
+Q: Where does GetMyWebsite work?
+A: The studio serves businesses in India. Work is delivered remotely with WhatsApp, email, and calls.
+
+## Signature websites
+
+GetMyWebsite builds business websites, corporate sites, startup sites, portfolio sites, landing pages, e-commerce stores, hospitality sites, real estate / clinic / salon / gym sites, dashboards, and custom web applications when those are in scope.
+
+Typical work includes layout, content structure, responsive design, enquiry paths such as forms or WhatsApp, and the pages needed for the offer. Extra features, payments, and integrations are scoped per project.
+
+Live website demos:
+- AKPIS EDU: https://vvv-nine-bice.vercel.app
+- Wash & Shine Studio: https://demoa-kygv.vercel.app
+- Aurelia Residences: https://real-estttes.vercel.app
+- Coach Aman: https://aman-raghani.vercel.app
+
+Service page: https://getmywebsite.co.in/signature-website/
+
+## AI automations
+
+Custom workflow automation for repetitive work: WhatsApp auto-replies, AI chatbots, AI voice assistants, lead management, CRM updates, appointment booking, missed-call follow-up, email/WhatsApp campaigns, document/reporting automation, e-commerce order alerts, and internal process automation.
+
+Integrations depend on the tools the client already uses and the access they can provide.
+
+Live automation demos:
+- Spice Route restaurant ops: https://spice-route-ops.vercel.app/#/front-of-house/qr-menu-ordering
+- Reeva review routing: https://reeva-review-demo.vercel.app
+- Aurelia Grand hotel OS: https://aurelia-grand-seven.vercel.app
+
+Service page: https://getmywebsite.co.in/ai-automations/
+
+## Agentic AI
+
+AI agents scoped around a defined goal, allowed tools, and handoff rules. Agents can collect an enquiry, check details, update a record, notify a teammate, support customers, qualify leads, or assist with research. They do not replace required human approval.
+
+Service page: https://getmywebsite.co.in/agentic-ai/
+
+## AI videos
+
+AI-assisted video for promotional clips, ads, product showcases, social content, avatar presenters, voiceovers, and subtitles. Format, style, duration, and deliverables depend on the brief.
+
+Service page: https://getmywebsite.co.in/ai-videos/
+
+## Process
+
+1. Brief — map the site, agents, and media to the outcome.
+2. Build — design, motion, and systems in one thread.
+3. Launch — go live, wire tracking, hand off a stack the client can run.
+4. Scale — automations and agents keep working after launch.
+
+## Founder
+
+Soubhagya Verma is the founder of GetMyWebsite and Vibe Videos. Work covers websites, AI automations, cold calling, B2B sales systems, and video.
+
+Portfolio: https://soubhagya-verma-site.vercel.app/
+
+## Claims and limits
+
+GetMyWebsite does not guarantee rankings, traffic, or revenue. Features, integrations, and deliverables depend on each project's requirements. Financial, medical, legal, or compliance outputs should be reviewed by a qualified person.

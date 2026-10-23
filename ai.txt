@@ -1,0 +1,12 @@
+# AI crawler policy for GetMyWebsite
+# https://getmywebsite.co.in/
+
+User-Agent: *
+Allow: /
+
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+llms-txt: https://getmywebsite.co.in/llms.txt
+llms-full-txt: https://getmywebsite.co.in/llms-full.txt
+sitemap: https://getmywebsite.co.in/sitemap.xml
+contact: getmywebsite121@gmail.com

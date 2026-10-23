@@ -1,0 +1,34 @@
+# GetMyWebsite
+
+> GetMyWebsite is a digital studio in India that builds signature websites, AI automations, agentic AI systems, and AI videos as one connected system.
+
+GetMyWebsite designs, launches, and scales the site, the workflows behind it, and the video that explains the offer. Work is scoped per project. Rankings, traffic, and results are not guaranteed.
+
+- Website: https://getmywebsite.co.in/
+- Email: getmywebsite121@gmail.com
+- Phone: +91 83599 22242, +91 72240 74444
+- Instagram: https://www.instagram.com/getmywebsite.co.in
+- Founder: Soubhagya Verma
+- Founder portfolio: https://soubhagya-verma-site.vercel.app/
+
+## Services
+
+- [Signature Website](https://getmywebsite.co.in/signature-website/): Custom website design and development for businesses in India. Starts at INR 9,999. Final price depends on design, features, integrations, and scope.
+- [AI Automations](https://getmywebsite.co.in/ai-automations/): WhatsApp workflows, AI chatbots, voice assistants, CRM updates, appointment flows, and other repetitive-task automation. Quoted per workflow.
+- [Agentic AI](https://getmywebsite.co.in/agentic-ai/): Goal-driven AI agents that plan steps and act across approved tools, apps, APIs, and data. Guardrails and human handoff are part of the build.
+- [AI Videos](https://getmywebsite.co.in/ai-videos/): Prompt-to-video production with characters, voiceovers, and brand styles for ads, product films, and social clips.
+
+## Who it is for
+
+Businesses, founders, clinics, restaurants, real estate teams, salons, gyms, and professional firms in India that need a website, automation, an AI agent, or AI video without stitching together multiple vendors.
+
+## How to start
+
+Share the service needed, the pages or workflows involved, and any tools that must connect. GetMyWebsite replies with a scoped quote and an estimated timeline.
+
+Contact: https://getmywebsite.co.in/#contact
+
+## Optional
+
+- Full machine-readable brief: https://getmywebsite.co.in/llms-full.txt
+- Sitemap: https://getmywebsite.co.in/sitemap.xml
