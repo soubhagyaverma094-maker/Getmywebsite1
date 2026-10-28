@@ -1,5 +1,28 @@
 User-agent: *
 Allow: /
+Allow: /articles/
+Allow: /articles/website-pricing/
+Allow: /articles/automation-pricing/
+Allow: /articles/demos-and-pricing-rules/
+Allow: /answers/
+Allow: /signature-website/
+Allow: /ai-automations/
+Allow: /agentic-ai/
+Allow: /ai-videos/
+Allow: /sitemap.xml
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai.txt
+Allow: /site.webmanifest
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
 
 User-agent: GPTBot
 Allow: /
@@ -28,6 +51,9 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
 
@@ -44,4 +70,3 @@ User-agent: FacebookBot
 Allow: /
 
 Sitemap: https://getmywebsite.co.in/sitemap.xml
-Host: https://getmywebsite.co.in

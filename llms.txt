@@ -32,3 +32,6 @@ Contact: https://getmywebsite.co.in/#contact
 
 - Full machine-readable brief: https://getmywebsite.co.in/llms-full.txt
 - Sitemap: https://getmywebsite.co.in/sitemap.xml
+- Website pricing article: https://getmywebsite.co.in/articles/website-pricing/
+- Automation pricing article: https://getmywebsite.co.in/articles/automation-pricing/
+- Demos and pricing rules: https://getmywebsite.co.in/articles/demos-and-pricing-rules/
