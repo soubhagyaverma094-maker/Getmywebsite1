@@ -70,3 +70,4 @@ User-agent: FacebookBot
 Allow: /
 
 Sitemap: https://getmywebsite.co.in/sitemap.xml
+# IndexNow key: https://getmywebsite.co.in/fbca25d5ccf476a97dd5f2d7a5bdd607.txt
