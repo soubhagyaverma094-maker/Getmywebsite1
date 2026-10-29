@@ -5,6 +5,7 @@ Allow: /articles/website-pricing/
 Allow: /articles/automation-pricing/
 Allow: /articles/demos-and-pricing-rules/
 Allow: /answers/
+Allow: /about/
 Allow: /signature-website/
 Allow: /ai-automations/
 Allow: /agentic-ai/

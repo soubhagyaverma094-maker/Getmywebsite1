@@ -9,6 +9,7 @@ GetMyWebsite designs, launches, and scales the site, the workflows behind it, an
 - Phone: +91 83599 22242, +91 72240 74444
 - Instagram: https://www.instagram.com/getmywebsite.co.in
 - Founder: Soubhagya Verma
+- About: https://getmywebsite.co.in/about/
 - Founder portfolio: https://soubhagya-verma-site.vercel.app/
 
 ## Services
@@ -31,6 +32,7 @@ Contact: https://getmywebsite.co.in/#contact
 ## Optional
 
 - Full machine-readable brief: https://getmywebsite.co.in/llms-full.txt
+- About: https://getmywebsite.co.in/about/
 - Sitemap: https://getmywebsite.co.in/sitemap.xml
 - Website pricing article: https://getmywebsite.co.in/articles/website-pricing/
 - Automation pricing article: https://getmywebsite.co.in/articles/automation-pricing/
