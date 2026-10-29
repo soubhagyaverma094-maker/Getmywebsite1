@@ -33,6 +33,7 @@ Contact: https://getmywebsite.co.in/#contact
 
 - Full machine-readable brief: https://getmywebsite.co.in/llms-full.txt
 - About: https://getmywebsite.co.in/about/
+- Answers: https://getmywebsite.co.in/answers/
 - Sitemap: https://getmywebsite.co.in/sitemap.xml
 - Website pricing article: https://getmywebsite.co.in/articles/website-pricing/
 - Automation pricing article: https://getmywebsite.co.in/articles/automation-pricing/
